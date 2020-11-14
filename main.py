@@ -1,16 +1,39 @@
 import sys
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSizeGrip
 from PyQt5 import uic, QtCore, QtGui
 from plyer import notification
-
-
+from ui_function import *
 class AppWindow(QMainWindow):
     def __init__(self):
         super(AppWindow, self).__init__()
         self.ui = uic.loadUi('ui_main.ui', self)
         self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
+        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
         self.ui.btnStart.clicked.connect(self.run)
+
+        # MOVE WINDOW
+        def moveWindow(event):
+            # RESTORE BEFORE MOVE
+            if UIFunctions.returnStatus() == 1:
+                UIFunctions.maximize_restore(self)
+
+            # IF LEFT CLICK MOVE WINDOW
+            if event.buttons() == QtCore.Qt.LeftButton:
+                self.move(self.pos() + event.globalPos() - self.dragPos)
+                self.dragPos = event.globalPos()
+                event.accept()
+
+        # SET TITLE BAR
+        self.ui.frameTitleBar.mouseMoveEvent = moveWindow
+
+        ## ==> SET UI DEFINITIONS
+        UIFunctions.uiDefinitions(self)
         self.show()
+
+    ## APP EVENTS
+    ########################################################################
+    def mousePressEvent(self, event):
+        self.dragPos = event.globalPos()
 
     def getMessage(self):
         return '{0}\nĐã {1} phút rồi bạn chưa rời mắt khỏi màn hình đó :<'. \
