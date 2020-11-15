@@ -1,14 +1,15 @@
 import sys
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSizeGrip
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow
 from PyQt5 import uic, QtCore, QtGui
 from plyer import notification
+import resource
 from ui_function import *
 class AppWindow(QMainWindow):
     def __init__(self):
         super(AppWindow, self).__init__()
         self.ui = uic.loadUi('ui_main.ui', self)
         self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
-        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
+        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
         self.ui.btnStart.clicked.connect(self.run)
 
         # MOVE WINDOW

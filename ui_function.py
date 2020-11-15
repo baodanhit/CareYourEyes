@@ -12,17 +12,18 @@ class UIFunctions(QMainWindow):
 
             # GET WIDTH
             width = self.ui.frameLeftBar.width()
+            print("width: ", width)
             maxExtend = maxWidth
-            standard = 70
+            standard = 35
 
             # SET MAX WIDTH
-            if width == 70:
+            if width == 35:
                 widthExtended = maxExtend
             else:
                 widthExtended = standard
-
+            print('widthExtended: ', widthExtended)
             # ANIMATION
-            self.animation = QPropertyAnimation(self.ui.frame_left_menu, b"minimumWidth")
+            self.animation = QtCore.QPropertyAnimation(self.ui.frameLeftBar, b"minimumWidth")
             self.animation.setDuration(400)
             self.animation.setStartValue(width)
             self.animation.setEndValue(widthExtended)
