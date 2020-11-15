@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icons/icon_close.png</file>
+    <file>icons/icon_resize.png</file>
+    <file>icons/hamburger.png</file>
+    <file>icons/icon_file_text.png</file>
+    <file>icons/icon_message.png</file>
+    <file>icons/icon_setting.png</file>
+    <file>icons/icon_help.png</file>
+    <file>icons/icon_message.ico</file>
+    <file>icons/icon_file_text.ico</file>
+    <file>icons/icon_help.ico</file>
+    <file>icons/icons_settings.ico</file>
+  </qresource>
+</RCC>
