@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>722</width>
+    <width>598</width>
     <height>509</height>
    </rect>
   </property>
@@ -67,126 +67,214 @@
        <property name="bottomMargin">
         <number>10</number>
        </property>
-       <item row="1" column="1">
-           <widget class="QStackedWidget" name="stackedWidgetContainer">
-               <property name="enabled">
-                   <bool>true</bool>
-               </property>
-               <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                   </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                   <string notr="true">background-color: rgb(33, 38, 56);</string>
-               </property>
-               <property name="currentIndex">
-                   <number>0</number>
-               </property>
-               <widget class="QWidget" name="page1">
-                   <layout class="QGridLayout" name="gridLayout_5">
-                       <item row="0" column="0">
-                           <widget class="QFrame" name="frameBodyPage1">
-                               <property name="sizePolicy">
-                                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                                       <horstretch>0</horstretch>
-                                       <verstretch>0</verstretch>
-                                   </sizepolicy>
-                               </property>
-                               <property name="minimumSize">
-                                   <size>
-                                       <width>200</width>
-                                       <height>0</height>
-                                   </size>
-                               </property>
-                               <property name="styleSheet">
-                                   <string notr="true"/>
-                               </property>
-                               <property name="frameShape">
-                                   <enum>QFrame::StyledPanel</enum>
-                               </property>
-                               <property name="frameShadow">
-                                   <enum>QFrame::Raised</enum>
-                               </property>
-                               <layout class="QGridLayout" name="gridLayout_4">
-              <property name="leftMargin">
-               <number>50</number>
-              </property>
-              <property name="topMargin">
-               <number>10</number>
-              </property>
-              <property name="rightMargin">
-               <number>50</number>
-              </property>
-              <property name="bottomMargin">
-               <number>10</number>
-              </property>
-              <item row="1" column="4">
-               <widget class="QLabel" name="labelMinute">
-                <property name="text">
-                 <string>phút</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <spacer name="horizontalSpacer_4">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="0" column="1" colspan="4">
-               <widget class="QLineEdit" name="lineEditUserName">
-                <property name="placeholderText">
-                 <string>Name</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QSpinBox" name="spinBoxTime">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>60</number>
-                </property>
-                <property name="value">
-                 <number>20</number>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="labelChooseTime">
-                <property name="text">
-                 <string>Chọn thời gian nhắc nhở:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="labelUserName">
-                <property name="text">
-                 <string>Tên của bạn:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="4">
-               <widget class="QPushButton" name="btnStop">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>75</width>
+          <item row="1" column="1">
+              <widget class="QStackedWidget" name="stackedWidgetContainer">
+                  <property name="enabled">
+                      <bool>true</bool>
+                  </property>
+                  <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                      </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                      <string notr="true">background-color: rgb(27, 32, 47);
+                          color: rgb(255, 255, 255);
+                      </string>
+                  </property>
+                  <property name="currentIndex">
+                      <number>0</number>
+                  </property>
+                  <widget class="QWidget" name="page1">
+                      <layout class="QGridLayout" name="gridLayout_5">
+                          <item row="0" column="0">
+                              <widget class="QFrame" name="frameBodyPage1">
+                                  <property name="sizePolicy">
+                                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                          <horstretch>0</horstretch>
+                                          <verstretch>0</verstretch>
+                                      </sizepolicy>
+                                  </property>
+                                  <property name="minimumSize">
+                                      <size>
+                                          <width>200</width>
+                                          <height>0</height>
+                                      </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                      <string notr="true"/>
+                                  </property>
+                                  <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QGridLayout" name="gridLayout_4">
+                                      <property name="leftMargin">
+                                          <number>50</number>
+                                      </property>
+                                      <property name="topMargin">
+                                          <number>10</number>
+                                      </property>
+                                      <property name="rightMargin">
+                                          <number>50</number>
+                                      </property>
+                                      <property name="bottomMargin">
+                                          <number>10</number>
+                                      </property>
+                                      <property name="verticalSpacing">
+                                          <number>10</number>
+                                      </property>
+                                      <item row="2" column="0">
+                                          <widget class="QLabel" name="labelChooseTime">
+                                              <property name="font">
+                                                  <font>
+                                                      <pointsize>10</pointsize>
+                                                  </font>
+                                              </property>
+                                              <property name="text">
+                                                  <string>Chọn thời gian nhắc nhở:</string>
+                                              </property>
+                                              <property name="scaledContents">
+                                                  <bool>true</bool>
+                                              </property>
+                                          </widget>
+                                      </item>
+                                      <item row="0" column="0">
+                                          <widget class="QLabel" name="labelUserName">
+                                              <property name="font">
+                                                  <font>
+                                                      <pointsize>10</pointsize>
+                                                  </font>
+                                              </property>
+                                              <property name="text">
+                                                  <string>Tên của bạn:</string>
+                                              </property>
+                                          </widget>
+                                      </item>
+                                      <item row="5" column="0" colspan="7">
+                                          <widget class="QGroupBox" name="groupBoxTypeRemind">
+                                              <property name="sizePolicy">
+                                                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                                                      <horstretch>0</horstretch>
+                                                      <verstretch>0</verstretch>
+                                                  </sizepolicy>
+                                              </property>
+                                              <property name="minimumSize">
+                                                  <size>
+                                                      <width>0</width>
+                                                      <height>75</height>
+                                                  </size>
+                                              </property>
+                                              <property name="title">
+                                                  <string>Kiểu nhắc nhở:</string>
+                                              </property>
+                                              <layout class="QHBoxLayout" name="horizontalLayout_3">
+                                                  <property name="leftMargin">
+                                                      <number>9</number>
+                                                  </property>
+                                                  <property name="rightMargin">
+                                                      <number>9</number>
+                                                  </property>
+                                                  <item>
+                                                      <widget class="QRadioButton" name="radioButtonType_Toast">
+                                                          <property name="font">
+                                                              <font>
+                                                                  <pointsize>10</pointsize>
+                                                              </font>
+                                                          </property>
+                                                          <property name="text">
+                                                              <string>Thông báo đẩy</string>
+                                                          </property>
+                                                          <property name="checked">
+                                                              <bool>true</bool>
+                                                          </property>
+                                                      </widget>
+                                                  </item>
+                                                  <item>
+                                                      <widget class="QRadioButton" name="radioButtonType_Popup">
+                                                          <property name="font">
+                                                              <font>
+                                                                  <pointsize>10</pointsize>
+                                                              </font>
+                                                          </property>
+                                                          <property name="text">
+                                                              <string>Hộp thoại thông báo</string>
+                                                          </property>
+                                                      </widget>
+                                                  </item>
+                                              </layout>
+                                          </widget>
+                                      </item>
+                                      <item row="4" column="0" colspan="7">
+                                          <widget class="QFrame" name="frame_3">
+                                              <property name="frameShape">
+                                                  <enum>QFrame::StyledPanel</enum>
+                                              </property>
+                                              <property name="frameShadow">
+                                                  <enum>QFrame::Raised</enum>
+                                              </property>
+                                              <layout class="QVBoxLayout" name="verticalLayout_3">
+                                                  <property name="leftMargin">
+                                                      <number>0</number>
+                                                  </property>
+                                                  <property name="rightMargin">
+                                                      <number>0</number>
+                                                  </property>
+                                                  <item>
+                                                      <widget class="QLabel" name="labelReminder">
+                                                          <property name="font">
+                                                              <font>
+                                                                  <pointsize>10</pointsize>
+                                                              </font>
+                                                          </property>
+                                                          <property name="text">
+                                                              <string>Lời nhắc:</string>
+                                                          </property>
+                                                      </widget>
+                                                  </item>
+                                                  <item>
+                                                      <widget class="QTextEdit" name="textEditReminder">
+                                                          <property name="html">
+                                                              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML
+                                                                  4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                                                                  &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot;
+                                                                  content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+                                                                  p, li { white-space: pre-wrap; }
+                                                                  &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
+                                                                  font-family:'MS Shell Dlg 2'; font-size:8.25pt;
+                                                                  font-weight:400; font-style:normal;&quot;&gt;
+                                                                  &lt;p style=&quot; margin-top:12px;
+                                                                  margin-bottom:12px; margin-left:0px; margin-right:0px;
+                                                                  -qt-block-indent:0; text-indent:0px;
+                                                                  background-color:#011627;&quot;&gt;&lt;span style=&quot;
+                                                                  font-size:10pt; font-style:italic;
+                                                                  background-color:#011627;&quot;&gt;Hãy để đôi mắt thân
+                                                                  yêu của bạn nghỉ ngơi một lát đi nhé !&lt;/span&gt;&lt;span
+                                                                  style=&quot; font-size:10pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                                              </string>
+                                                          </property>
+                                                          <property name="placeholderText">
+                                                              <string>Nhập lời nhắc của bạn ở đây</string>
+                                                          </property>
+                                                      </widget>
+                                                  </item>
+                                              </layout>
+                                          </widget>
+                                      </item>
+                                      <item row="7" column="6">
+                                          <widget class="QPushButton" name="btnStop">
+                                              <property name="sizePolicy">
+                                                  <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                                                      <horstretch>0</horstretch>
+                                                      <verstretch>0</verstretch>
+                                                  </sizepolicy>
+                                              </property>
+                                              <property name="minimumSize">
+                                                  <size>
+                                                      <width>75</width>
                   <height>30</height>
                  </size>
                 </property>
@@ -203,27 +291,139 @@
                   color: #FF5252;
                   }
                   QPushButton:hover {
-                  background: #FF5252;
-                  color: #ffffff;
-                  }
+                     background: #FF5252;
+                     color: #ffffff;
+                     }
                  </string>
                 </property>
-                <property name="text">
-                 <string>Dừng</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="2">
-               <widget class="QPushButton" name="btnStart">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>75</width>
+                                              <property name="text">
+                                                  <string>Dừng</string>
+                                              </property>
+                                          </widget>
+                                      </item>
+                                      <item row="3" column="0">
+                                          <spacer name="verticalSpacer_2">
+                                              <property name="orientation">
+                                                  <enum>Qt::Vertical</enum>
+                                              </property>
+                                              <property name="sizeHint" stdset="0">
+                                                  <size>
+                                                      <width>20</width>
+                                                      <height>40</height>
+                                                  </size>
+                                              </property>
+                                          </spacer>
+                                      </item>
+                                      <item row="1" column="0">
+                                          <spacer name="verticalSpacer">
+                                              <property name="orientation">
+                                                  <enum>Qt::Vertical</enum>
+                                              </property>
+                                              <property name="sizeHint" stdset="0">
+                                                  <size>
+                                                      <width>20</width>
+                                                      <height>40</height>
+                                                  </size>
+                                              </property>
+                                          </spacer>
+                                      </item>
+                                      <item row="8" column="2">
+                                          <spacer name="verticalSpacer_3">
+                                              <property name="orientation">
+                                                  <enum>Qt::Vertical</enum>
+                                              </property>
+                                              <property name="sizeHint" stdset="0">
+                                                  <size>
+                                                      <width>20</width>
+                                                      <height>40</height>
+                                                  </size>
+                                              </property>
+                                          </spacer>
+                                      </item>
+                                      <item row="6" column="2">
+                                          <spacer name="verticalSpacer_4">
+                                              <property name="orientation">
+                                                  <enum>Qt::Vertical</enum>
+                                              </property>
+                                              <property name="sizeHint" stdset="0">
+                                                  <size>
+                                                      <width>20</width>
+                                                      <height>40</height>
+                                                  </size>
+                                              </property>
+                                          </spacer>
+                                      </item>
+                                      <item row="2" column="4">
+                                          <widget class="QLabel" name="labelMinute">
+                                              <property name="font">
+                                                  <font>
+                                                      <pointsize>10</pointsize>
+                                                  </font>
+                                              </property>
+                                              <property name="text">
+                                                  <string>phút</string>
+                                              </property>
+                                          </widget>
+                                      </item>
+                                      <item row="2" column="3">
+                                          <widget class="QSpinBox" name="spinBoxTime">
+                                              <property name="sizePolicy">
+                                                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                                      <horstretch>0</horstretch>
+                                                      <verstretch>0</verstretch>
+                                                  </sizepolicy>
+                                              </property>
+                                              <property name="minimumSize">
+                                                  <size>
+                                                      <width>45</width>
+                                                      <height>30</height>
+                                                  </size>
+                                              </property>
+                                              <property name="font">
+                                                  <font>
+                                                      <pointsize>10</pointsize>
+                                                  </font>
+                                              </property>
+                                              <property name="minimum">
+                                                  <number>1</number>
+                                              </property>
+                                              <property name="maximum">
+                                                  <number>60</number>
+                                              </property>
+                                              <property name="value">
+                                                  <number>20</number>
+                                              </property>
+                                          </widget>
+                                      </item>
+                                      <item row="0" column="3" colspan="4">
+                                          <widget class="QLineEdit" name="lineEditUserName">
+                                              <property name="minimumSize">
+                                                  <size>
+                                                      <width>0</width>
+                                                      <height>30</height>
+                                                  </size>
+                                              </property>
+                                              <property name="font">
+                                                  <font>
+                                                      <pointsize>10</pointsize>
+                                                  </font>
+                                              </property>
+                                              <property name="placeholderText">
+                                                  <string>Name</string>
+                                              </property>
+                                          </widget>
+                                      </item>
+                                      <item row="7" column="5">
+                                          <widget class="QPushButton" name="btnStart">
+                                              <property name="sizePolicy">
+                                                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                                      <horstretch>0</horstretch>
+                                                      <verstretch>0</verstretch>
+                                                  </sizepolicy>
+                                              </property>
+                                              <property name="minimumSize">
+                                                  <size>
+                                                      <width>75</width>
                   <height>30</height>
                  </size>
                 </property>
@@ -250,120 +450,37 @@
                  <string>Bắt đầu</string>
                 </property>
                 <property name="autoDefault">
-                 <bool>false</bool>
+                    <bool>false</bool>
                 </property>
-                <property name="default">
-                 <bool>false</bool>
-                </property>
-                <property name="flat">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0" colspan="5">
-               <widget class="QGroupBox" name="groupBoxTypeRemind">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>75</height>
-                 </size>
-                </property>
-                <property name="title">
-                 <string>Kiểu nhắc nhở:</string>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_3">
-                 <property name="leftMargin">
-                  <number>9</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>9</number>
-                 </property>
-                 <item>
-                  <widget class="QRadioButton" name="radioButtonType_Toast">
-                   <property name="font">
-                    <font>
-                     <pointsize>8</pointsize>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Thông báo đẩy</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
+                                              <property name="default">
+                                                  <bool>false</bool>
+                                              </property>
+                                              <property name="flat">
+                                                  <bool>false</bool>
+                                              </property>
+                                          </widget>
+                                      </item>
+                                      <item row="2" column="5" colspan="2">
+                                          <spacer name="horizontalSpacer_4">
+                                              <property name="orientation">
+                                                  <enum>Qt::Horizontal</enum>
+                                              </property>
+                                              <property name="sizeHint" stdset="0">
+                                                  <size>
+                                                      <width>40</width>
+                                                      <height>20</height>
+                                                  </size>
+                                              </property>
+                                          </spacer>
+                                      </item>
+                                  </layout>
+                              </widget>
+                          </item>
+                      </layout>
                   </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioButtonType_Popup">
-                   <property name="text">
-                    <string>Hộp thoại thông báo</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="5">
-               <widget class="QFrame" name="frame_3">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_3">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="labelReminder">
-                   <property name="text">
-                    <string>Lời nhắc:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QTextEdit" name="textEditReminder">
-                   <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-                           &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style
-                           type=&quot;text/css&quot;&gt;
-                           p, li { white-space: pre-wrap; }
-                           &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2';
-                           font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-                           &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;
-                           -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;/p&gt;
-                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
-                           -qt-block-indent:0; text-indent:0px; background-color:#011627;&quot;&gt;&lt;span style=&quot;
-                           font-size:10pt; font-style:italic; background-color:#011627;&quot;&gt;Hãy để đôi mắt thân yêu
-                           của bạn nghỉ ngơi một lát đi nhé !&lt;/span&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                       </string>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Nhập lời nhắc của bạn ở đây</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-                               </layout>
-                           </widget>
-                       </item>
-                   </layout>
-               </widget>
-               <widget class="QWidget" name="page2"/>
-           </widget>
-       </item>
+                  <widget class="QWidget" name="page2"/>
+              </widget>
+          </item>
           <item row="0" column="0" colspan="2">
               <widget class="QFrame" name="frameTitleBar">
                   <property name="styleSheet">
@@ -488,6 +605,12 @@
                                       <height>20</height>
                                   </size>
                               </property>
+                              <property name="maximumSize">
+                                  <size>
+                                      <width>20</width>
+                                      <height>20</height>
+                                  </size>
+                              </property>
                               <property name="font">
                                   <font>
                                       <pointsize>10</pointsize>
@@ -513,7 +636,7 @@
                                   <string/>
                               </property>
                               <property name="icon">
-                                  <iconset resource="resources/resource.qrc">
+                                  <iconset resource="appresources.qrc">
                                       <normaloff>:/icon/icons/icon_resize.png</normaloff>:/icon/icons/icon_resize.png
                                   </iconset>
                               </property>
@@ -546,7 +669,19 @@
                       </item>
                       <item>
                           <widget class="QPushButton" name="btnClose">
+                              <property name="sizePolicy">
+                                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                                      <horstretch>0</horstretch>
+                                      <verstretch>0</verstretch>
+                                  </sizepolicy>
+                              </property>
                               <property name="minimumSize">
+                                  <size>
+                                      <width>20</width>
+                                      <height>20</height>
+                                  </size>
+                              </property>
+                              <property name="maximumSize">
                                   <size>
                                       <width>20</width>
                                       <height>20</height>
@@ -581,7 +716,7 @@
                                   <string/>
                               </property>
                               <property name="icon">
-                                  <iconset resource="resources/resource.qrc">
+                                  <iconset resource="appresources.qrc">
                                       <normaloff>:/icon/icons/icon_close.png</normaloff>:/icon/icons/icon_close.png
                                   </iconset>
                               </property>
@@ -609,17 +744,17 @@
                   </property>
                   <property name="minimumSize">
                       <size>
-           <width>35</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-              <width>35</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="frameShape">
+                          <width>40</width>
+                          <height>0</height>
+                      </size>
+                  </property>
+                  <property name="maximumSize">
+                      <size>
+                          <width>40</width>
+                          <height>16777215</height>
+                      </size>
+                  </property>
+                  <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="frameShadow">
@@ -663,11 +798,11 @@
             <property name="text">
              <string/>
             </property>
-            <property name="icon">
-                <iconset resource="resources/resource.qrc">
-                    <normaloff>:/icon/icons/hamburger.png</normaloff>:/icon/icons/hamburger.png
-                </iconset>
-            </property>
+               <property name="icon">
+                   <iconset resource="appresources.qrc">
+                       <normaloff>:/icon/icons/hamburger.png</normaloff>:/icon/icons/hamburger.png
+                   </iconset>
+               </property>
             <property name="iconSize">
              <size>
               <width>32</width>
@@ -705,11 +840,11 @@
             <property name="text">
              <string>Chung</string>
             </property>
-            <property name="icon">
-                <iconset resource="resources/resource.qrc">
-                    <normaloff>:/icon/icons/icon_setting.png</normaloff>:/icon/icons/icon_setting.png
-                </iconset>
-            </property>
+               <property name="icon">
+                   <iconset resource="appresources.qrc">
+                       <normaloff>:/icon/icons/icon_setting.png</normaloff>:/icon/icons/icon_setting.png
+                   </iconset>
+               </property>
             <property name="iconSize">
              <size>
               <width>32</width>
@@ -750,11 +885,11 @@
             <property name="text">
              <string>Lời nhắc</string>
             </property>
-            <property name="icon">
-                <iconset resource="resources/resource.qrc">
-                    <normaloff>:/icon/icons/icon_message.png</normaloff>:/icon/icons/icon_message.png
-                </iconset>
-            </property>
+               <property name="icon">
+                   <iconset resource="appresources.qrc">
+                       <normaloff>:/icon/icons/icon_message.png</normaloff>:/icon/icons/icon_message.png
+                   </iconset>
+               </property>
             <property name="iconSize">
              <size>
               <width>32</width>
@@ -792,11 +927,11 @@
             <property name="text">
              <string>Tips</string>
             </property>
-            <property name="icon">
-                <iconset resource="resources/resource.qrc">
-                    <normaloff>:/icon/icons/icon_file_text.png</normaloff>:/icon/icons/icon_file_text.png
-                </iconset>
-            </property>
+               <property name="icon">
+                   <iconset resource="appresources.qrc">
+                       <normaloff>:/icon/icons/icon_file_text.png</normaloff>:/icon/icons/icon_file_text.png
+                   </iconset>
+               </property>
             <property name="iconSize">
              <size>
               <width>32</width>
@@ -840,20 +975,20 @@
             <property name="text">
              <string>Help</string>
             </property>
-            <property name="icon">
-                <iconset resource="resources/resource.qrc">
-                    <normaloff>:/icon/icons/icon_help.png</normaloff>:/icon/icons/icon_help.png
-                </iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="autoExclusive">
-                <bool>false</bool>
-            </property>
+               <property name="icon">
+                   <iconset resource="appresources.qrc">
+                       <normaloff>:/icon/icons/icon_help.png</normaloff>:/icon/icons/icon_help.png
+                   </iconset>
+               </property>
+               <property name="iconSize">
+                   <size>
+                       <width>32</width>
+                       <height>32</height>
+                   </size>
+               </property>
+               <property name="autoExclusive">
+                   <bool>false</bool>
+               </property>
                <property name="flat">
                    <bool>true</bool>
                </property>
@@ -863,16 +998,13 @@
               </widget>
           </item>
       </layout>
-         <zorder>stackedWidgetContainer</zorder>
-         <zorder>frameTitleBar</zorder>
-         <zorder>frameLeftBar</zorder>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
  <resources>
-  <include location="resources/resource.qrc"/>
+     <include location="appresources.qrc"/>
  </resources>
  <connections/>
 </ui>
