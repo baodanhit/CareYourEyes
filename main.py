@@ -17,12 +17,17 @@ class AppWindow(QMainWindow):
         self.settings = QtCore.QSettings('CareurEyes', 'Settings')
         self.getUserName()
         self.getTime()
+        self.getMessage()
         self.getOption()
         self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
         self.ui.btnStart.clicked.connect(self.run)
+        self.ui.btnStop.clicked.connect(self.stop)
         self.ui.lineEditUserName.editingFinished.connect(self.setUserName)
         self.ui.spinBoxTime.valueChanged.connect(self.setTime)
         self.ui.radioButtonType_Toast.toggled.connect(self.setMessageOption)
+        self.ui.textEditReminder.textChanged.connect(self.setMessageReminder)
+        self.timer = QtCore.QTimer()
+        self.running = False
 
         # MOVE WINDOW
         def moveWindow(event):
@@ -59,8 +64,13 @@ class AppWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
     def getMessage(self):
-        return '{0}\nĐã {1} phút rồi bạn chưa rời mắt khỏi màn hình đó :<'. \
-            format(self.ui.textEditReminder.toPlainText(), str(self.getTime()))
+        st_message_reminder = self.settings.value('message_reminder')
+        if not st_message_reminder:
+            return '{0}\nĐã {1} phút rồi bạn chưa rời mắt khỏi màn hình đó :<'. \
+                format(self.ui.textEditReminder.toPlainText(), str(self.getTime()))
+        else:
+            self.textEditReminder.setPlainText(st_message_reminder)
+            return st_message_reminder
 
     def getUserName(self):
         st_user_name = self.settings.value('user_name')
@@ -106,36 +116,48 @@ class AppWindow(QMainWindow):
             option = 'popup'
         self.settings.setValue('message_option', option)
 
+    def setMessageReminder(self):
+        self.settings.setValue('message_reminder', self.textEditReminder.toPlainText())
+
     def toastNotification(self):
         userName = self.getUserName()
-        return notification.notify(title='{} ơi'.format(userName if userName else "Bạn"),
-                                   message=self.getMessage(),
-                                   app_name='Rest for Eyes', app_icon='eye_icon.ico',
-                                   timeout=10,
-                                   ticker='Rest for Eyes',
-                                   toast=True)
+        title = '{} ơi'.format(userName if userName else "Bạn")
+        message = self.getMessage()
+        return notification.notify(title,
+                                   message,
+                                   app_name='Rest for Eyes',
+                                   app_icon='eye_icon.ico',
+                                   timeout=10)
 
     def popupReminder(self):
         popup_reminder = RemindDialog()
         popup_reminder.ui.labelUserName.setText('{} ơi !'.format(self.getUserName() if self.getUserName() else "Bạn"))
         popup_reminder.ui.labelReminderText.setText(self.getMessage())
+        popup_reminder.timer.setSingleShot(30000)
+        popup_reminder.timer.start()
 
     def run(self):
-        timer = QtCore.QTimer()
         if self.getOption() == 'toast':
-            timer.timeout.connect(self.toastNotification)
+            self.timer.timeout.connect(self.toastNotification)
         elif self.getOption() == 'popup':
-            timer.timeout.connect(self.popupReminder)
+            self.timer.timeout.connect(self.popupReminder)
 
-        timer.setInterval(1000)
-        timer.start()
+        self.timer.setInterval(self.getTime() * 60000)
+        self.timer.start()
+        self.running = True
 
+    def stop(self):
+        if self.running:
+            self.timer.stop()
+            self.running = False
 
 class RemindDialog(QDialog):
     def __init__(self):
         super(RemindDialog, self).__init__()
         self.ui = uic.loadUi('ui_remind_dialog.ui', self)
         self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.accept)
         self.show()
 
 
@@ -150,7 +172,7 @@ if __name__ == "__main__":
         # RUN APP IN SYSTEMTRAYICON
         trayIcon = QSystemTrayIcon(QtGui.QIcon('eye_icon-removebg.png'), parent=app)
         trayIcon.setToolTip("Care Your Eyes")
-
+        trayIcon.activated.connect(window.show)
         contextMenu = QMenu()
         openAction = contextMenu.addAction("Mở")
         openAction.triggered.connect(window.show)

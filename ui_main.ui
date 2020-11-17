@@ -58,15 +58,15 @@
        <property name="leftMargin">
         <number>10</number>
        </property>
-       <property name="topMargin">
-        <number>10</number>
-       </property>
-       <property name="rightMargin">
-        <number>10</number>
-       </property>
-       <property name="bottomMargin">
-        <number>10</number>
-       </property>
+          <property name="topMargin">
+              <number>10</number>
+          </property>
+          <property name="rightMargin">
+              <number>10</number>
+          </property>
+          <property name="bottomMargin">
+              <number>10</number>
+          </property>
           <item row="1" column="1">
               <widget class="QStackedWidget" name="stackedWidgetContainer">
                   <property name="enabled">
@@ -246,14 +246,14 @@
                                                                   &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot;
                                                                   font-family:'MS Shell Dlg 2'; font-size:8.25pt;
                                                                   font-weight:400; font-style:normal;&quot;&gt;
-                                                                  &lt;p style=&quot; margin-top:12px;
-                                                                  margin-bottom:12px; margin-left:0px; margin-right:0px;
-                                                                  -qt-block-indent:0; text-indent:0px;
-                                                                  background-color:#011627;&quot;&gt;&lt;span style=&quot;
+                                                                  &lt;p style=&quot; margin-top:0px; margin-bottom:0px;
+                                                                  margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                                                                  text-indent:0px;&quot;&gt;&lt;span style=&quot;
                                                                   font-size:10pt; font-style:italic;
                                                                   background-color:#011627;&quot;&gt;Hãy để đôi mắt thân
                                                                   yêu của bạn nghỉ ngơi một lát đi nhé !&lt;/span&gt;&lt;span
-                                                                  style=&quot; font-size:10pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                                                  style=&quot; font-size:10pt;&quot;&gt; &lt;/span&gt;
+                                                                  &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                                                               </string>
                                                           </property>
                                                           <property name="placeholderText">
@@ -275,27 +275,27 @@
                                               <property name="minimumSize">
                                                   <size>
                                                       <width>75</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
+                                                      <height>30</height>
+                                                  </size>
+                                              </property>
+                                              <property name="font">
+                                                  <font>
+                                                      <weight>75</weight>
+                                                      <bold>true</bold>
+                                                  </font>
+                                              </property>
+                                              <property name="styleSheet">
                  <string notr="true">QPushButton {
-                  border-radius: 15px;
-                  border: 1px solid #FF5252;
-                  color: #FF5252;
-                  }
-                  QPushButton:hover {
+                     border-radius: 15px;
+                     border: 1px solid #FF5252;
+                     color: #FF5252;
+                     }
+                     QPushButton:hover {
                      background: #FF5252;
                      color: #ffffff;
                      }
                  </string>
-                </property>
+                                              </property>
                                               <property name="text">
                                                   <string>Dừng</string>
                                               </property>
@@ -424,16 +424,16 @@
                                               <property name="minimumSize">
                                                   <size>
                                                       <width>75</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                  <stylestrategy>PreferDefault</stylestrategy>
-                 </font>
-                </property>
+                                                      <height>30</height>
+                                                  </size>
+                                              </property>
+                                              <property name="font">
+                                                  <font>
+                                                      <weight>75</weight>
+                                                      <bold>true</bold>
+                                                      <stylestrategy>PreferDefault</stylestrategy>
+                                                  </font>
+                                              </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
                   border-radius: 15px;
@@ -442,16 +442,16 @@
                   }
                   QPushButton:hover {
                   background-color: #66BB6A;
-                  color: #ffffff;
-                  }
+                     color: #ffffff;
+                     }
                  </string>
                 </property>
-                <property name="text">
-                 <string>Bắt đầu</string>
-                </property>
-                <property name="autoDefault">
-                    <bool>false</bool>
-                </property>
+                                              <property name="text">
+                                                  <string>Bắt đầu</string>
+                                              </property>
+                                              <property name="autoDefault">
+                                                  <bool>false</bool>
+                                              </property>
                                               <property name="default">
                                                   <bool>false</bool>
                                               </property>
@@ -755,16 +755,16 @@
                       </size>
                   </property>
                   <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
+                      <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout">
+                      <property name="spacing">
+                          <number>0</number>
+                      </property>
+                      <property name="leftMargin">
            <number>0</number>
           </property>
           <property name="topMargin">
@@ -789,29 +789,29 @@
               <pointsize>10</pointsize>
              </font>
             </property>
-            <property name="toolTip">
-             <string>Mở rộng</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);text-align: left;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
+               <property name="toolTip">
+                   <string>Mở rộng</string>
+               </property>
+               <property name="styleSheet">
+                   <string notr="true">color: rgb(255, 255, 255);text-align: left;</string>
+               </property>
+               <property name="text">
+                   <string/>
+               </property>
                <property name="icon">
                    <iconset resource="appresources.qrc">
                        <normaloff>:/icon/icons/hamburger.png</normaloff>:/icon/icons/hamburger.png
                    </iconset>
                </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
+               <property name="iconSize">
+                   <size>
+                       <width>32</width>
+                       <height>32</height>
+                   </size>
+               </property>
+               <property name="flat">
+                   <bool>true</bool>
+               </property>
            </widget>
           </item>
           <item>
@@ -830,30 +830,30 @@
              </font>
             </property>
             <property name="toolTip">
-             <string>Thiết lập chung</string>
+                <string>Thiết lập chung</string>
             </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-              text-align: left;
-             </string>
-            </property>
-            <property name="text">
-             <string>Chung</string>
-            </property>
+               <property name="styleSheet">
+                   <string notr="true">color: rgb(255, 255, 255);
+                       text-align: left;
+                   </string>
+               </property>
+               <property name="text">
+                   <string>Chung</string>
+               </property>
                <property name="icon">
                    <iconset resource="appresources.qrc">
                        <normaloff>:/icon/icons/icon_setting.png</normaloff>:/icon/icons/icon_setting.png
                    </iconset>
                </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
+               <property name="iconSize">
+                   <size>
+                       <width>32</width>
+                       <height>32</height>
+                   </size>
+               </property>
+               <property name="flat">
+                   <bool>true</bool>
+               </property>
            </widget>
           </item>
           <item>
@@ -875,30 +875,30 @@
              <string>Kiểu thông báo</string>
             </property>
             <property name="autoFillBackground">
-             <bool>false</bool>
+                <bool>false</bool>
             </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-              text-align: left;
-             </string>
-            </property>
-            <property name="text">
-             <string>Lời nhắc</string>
-            </property>
+               <property name="styleSheet">
+                   <string notr="true">color: rgb(255, 255, 255);
+                       text-align: left;
+                   </string>
+               </property>
+               <property name="text">
+                   <string>Lời nhắc</string>
+               </property>
                <property name="icon">
                    <iconset resource="appresources.qrc">
                        <normaloff>:/icon/icons/icon_message.png</normaloff>:/icon/icons/icon_message.png
                    </iconset>
                </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
+               <property name="iconSize">
+                   <size>
+                       <width>32</width>
+                       <height>32</height>
+                   </size>
+               </property>
+               <property name="flat">
+                   <bool>true</bool>
+               </property>
            </widget>
           </item>
           <item>
@@ -917,30 +917,30 @@
              </font>
             </property>
             <property name="toolTip">
-             <string>Lời nhắc</string>
+                <string>Lời nhắc</string>
             </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-              text-align: left;
-             </string>
-            </property>
-            <property name="text">
-             <string>Tips</string>
-            </property>
+               <property name="styleSheet">
+                   <string notr="true">color: rgb(255, 255, 255);
+                       text-align: left;
+                   </string>
+               </property>
+               <property name="text">
+                   <string>Tips</string>
+               </property>
                <property name="icon">
                    <iconset resource="appresources.qrc">
                        <normaloff>:/icon/icons/icon_file_text.png</normaloff>:/icon/icons/icon_file_text.png
                    </iconset>
                </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
+               <property name="iconSize">
+                   <size>
+                       <width>32</width>
+                       <height>32</height>
+                   </size>
+               </property>
+               <property name="flat">
+                   <bool>true</bool>
+               </property>
            </widget>
           </item>
           <item>
@@ -965,16 +965,16 @@
              <number>-1</number>
             </property>
             <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
+                <enum>Qt::LeftToRight</enum>
             </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-              text-align: left;
-             </string>
-            </property>
-            <property name="text">
-             <string>Help</string>
-            </property>
+               <property name="styleSheet">
+                   <string notr="true">color: rgb(255, 255, 255);
+                       text-align: left;
+                   </string>
+               </property>
+               <property name="text">
+                   <string>Help</string>
+               </property>
                <property name="icon">
                    <iconset resource="appresources.qrc">
                        <normaloff>:/icon/icons/icon_help.png</normaloff>:/icon/icons/icon_help.png
@@ -994,7 +994,7 @@
                </property>
            </widget>
           </item>
-         </layout>
+                  </layout>
               </widget>
           </item>
       </layout>
