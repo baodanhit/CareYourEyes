@@ -1,5 +1,5 @@
 import sys
-from time import sleep
+from random import randint
 
 from PyQt5 import uic, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSystemTrayIcon, QMenu
@@ -17,15 +17,29 @@ class AppWindow(QMainWindow):
         self.settings = QtCore.QSettings('CareurEyes', 'Settings')
         self.getUserName()
         self.getTime()
-        self.getMessage()
+        # self.getRandomMessage()
         self.getOption()
+        self.messages = self.settings.value('message_reminder')
+
+        ## PAGES
+        ########################################################################
+        self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting)
+        # PAGE 1
+        self.ui.btnPageSetting.clicked.connect(
+            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting))
+
+        # PAGE 2
+        self.ui.btnPageReminder.clicked.connect(
+            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageReminder))
+
         self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
         self.ui.btnStart.clicked.connect(self.run)
         self.ui.btnStop.clicked.connect(self.stop)
+
         self.ui.lineEditUserName.editingFinished.connect(self.setUserName)
         self.ui.spinBoxTime.valueChanged.connect(self.setTime)
         self.ui.radioButtonType_Toast.toggled.connect(self.setMessageOption)
-        self.ui.textEditReminder.textChanged.connect(self.setMessageReminder)
+        # self.ui.textEditReminder.textChanged.connect(self.setMessageList)
         self.timer = QtCore.QTimer()
         self.running = False
 
@@ -63,14 +77,28 @@ class AppWindow(QMainWindow):
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
 
-    def getMessage(self):
-        st_message_reminder = self.settings.value('message_reminder')
-        if not st_message_reminder:
-            return '{0}\nĐã {1} phút rồi bạn chưa rời mắt khỏi màn hình đó :<'. \
-                format(self.ui.textEditReminder.toPlainText(), str(self.getTime()))
+    def getMessageList(self):
+        if not self.messages:
+            mes_list = []
+            listWidgetReminders = self.ui.listWidgetReminders
+            if listWidgetReminders.count() > 0:
+                for i in range(0, listWidgetReminders.count()):
+                    mes_list.append(listWidgetReminders.item(i))
+            return mes_list
         else:
-            self.textEditReminder.setPlainText(st_message_reminder)
-            return st_message_reminder
+            return self.messages
+
+    def setMessageList(self):
+        mes_list = []
+        listWidgetReminders = self.ui.listWidgetReminders
+        if listWidgetReminders.count() > 0:
+            for i in range(0, listWidgetReminders.count()):
+                mes_list.append(listWidgetReminders.item(i))
+        self.settings.setValue('message_reminder', mes_list)
+
+    def getRandomMessage(self):
+        index = randint(0, len(self.messages))
+        return self.messages[index]
 
     def getUserName(self):
         st_user_name = self.settings.value('user_name')
@@ -116,27 +144,24 @@ class AppWindow(QMainWindow):
             option = 'popup'
         self.settings.setValue('message_option', option)
 
-    def setMessageReminder(self):
-        self.settings.setValue('message_reminder', self.textEditReminder.toPlainText())
-
     def toastNotification(self):
         userName = self.getUserName()
         title = '{} ơi'.format(userName if userName else "Bạn")
-        message = self.getMessage()
+        message = self.getRandomMessage()
         return notification.notify(title,
                                    message,
                                    app_name='Rest for Eyes',
-                                   app_icon='eye_icon.ico',
+                                   app_icon='icons/logoCareYourEyes_circle.ico',
                                    timeout=10)
 
     def popupReminder(self):
         popup_reminder = RemindDialog()
         popup_reminder.ui.labelUserName.setText('{} ơi !'.format(self.getUserName() if self.getUserName() else "Bạn"))
-        popup_reminder.ui.labelReminderText.setText(self.getMessage())
-        popup_reminder.timer.setSingleShot(30000)
-        popup_reminder.timer.start()
+        popup_reminder.ui.labelReminderText.setText(self.getRandomMessage())
+        #QtCore.QTimer.singleShot(60000, popup_reminder.done())
 
     def run(self):
+        print("Mes: ", self.getRandomMessage())
         if self.getOption() == 'toast':
             self.timer.timeout.connect(self.toastNotification)
         elif self.getOption() == 'popup':
@@ -156,8 +181,7 @@ class RemindDialog(QDialog):
         super(RemindDialog, self).__init__()
         self.ui = uic.loadUi('ui_remind_dialog.ui', self)
         self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
-        self.timer = QtCore.QTimer()
-        self.timer.timeout.connect(self.accept)
+        self.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint)
         self.show()
 
 
