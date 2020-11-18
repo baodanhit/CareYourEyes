@@ -1,6 +1,5 @@
 import sys
 from random import randint
-
 from PyQt5 import uic, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSystemTrayIcon, QMenu
 from plyer import notification
@@ -13,17 +12,37 @@ class AppWindow(QMainWindow):
         super(AppWindow, self).__init__()
         self.ui = uic.loadUi('ui_main.ui', self)
         self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
+        # ~~~~~~~~~~~ SET UI DEFINITIONS ~~~~~~~~~~ #
+        UIFunctions.uiDefinitions(self)
         self.setupIcon()
+
+        # ~~~ GET ATTRIBUTES FROM SYSTEM SETTING ~~ #
+
         self.settings = QtCore.QSettings('CareurEyes', 'Settings')
-        self.getUserName()
-        self.getTime()
-        # self.getRandomMessage()
-        self.getOption()
         self.messages = self.settings.value('message_reminder')
 
-        ## PAGES
-        ########################################################################
+        self.getUserName()
+        self.getTime()
+        self.getOption()
+        self.setMessageList()
+        self.getMessageList()
+
+        self.timer = QtCore.QTimer()
+        self.isRunning = False
+        # ======================================================== #
+        # ==================== LEFT SIDE MENU ==================== #
+        # ======================================================== #
+
+        # TOGGLE BUTTON 
+        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
+
+        # ======================================================== #
+        # ========================= PAGES ======================== #
+        # ======================================================== #
+        
+        # SET DEFAULT TO SETTING PAGE
         self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting)
+
         # PAGE 1
         self.ui.btnPageSetting.clicked.connect(
             lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting))
@@ -31,19 +50,23 @@ class AppWindow(QMainWindow):
         # PAGE 2
         self.ui.btnPageReminder.clicked.connect(
             lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageReminder))
+        # ======================================================== #
+        # ======================= END PAGES ====================== #
+        # ======================================================== #
 
-        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
-        self.ui.btnStart.clicked.connect(self.run)
-        self.ui.btnStop.clicked.connect(self.stop)
-
+        # ~~~~~~~~~~~ SETTING ON EDITING ~~~~~~~~~~ #
         self.ui.lineEditUserName.editingFinished.connect(self.setUserName)
         self.ui.spinBoxTime.valueChanged.connect(self.setTime)
         self.ui.radioButtonType_Toast.toggled.connect(self.setMessageOption)
         # self.ui.textEditReminder.textChanged.connect(self.setMessageList)
-        self.timer = QtCore.QTimer()
-        self.running = False
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
-        # MOVE WINDOW
+        # ~~~~~~~~~~~ RUN/STOP REMINDER ~~~~~~~~~~~ # 
+        self.ui.btnStart.clicked.connect(self.run)
+        self.ui.btnStop.clicked.connect(self.stopReminder)
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+        # ~~~~~~~~~~~~~~ MOVE WINDOW ~~~~~~~~~~~~~~ #
         def moveWindow(event):
             # RESTORE BEFORE MOVE
             if UIFunctions.returnStatus() == 1:
@@ -54,15 +77,14 @@ class AppWindow(QMainWindow):
                 self.move(self.pos() + event.globalPos() - self.dragPos)
                 self.dragPos = event.globalPos()
                 event.accept()
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
-        # SET TITLE BAR
+        # ~~~~~~~~~~~~~ SET TITLE BAR ~~~~~~~~~~~~~ #
         self.ui.frameTitleBar.mouseMoveEvent = moveWindow
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+        
 
-        ## ==> SET UI DEFINITIONS
-        UIFunctions.uiDefinitions(self)
-        # self.show()
-
-    ## SETUP
+    # ~~~~~~~~ SETUP ICONS FOR BUTTONS ~~~~~~~~ #
     def setupIcon(self):
         self.ui.btnClose.setIcon(QtGui.QIcon("icons/icon_close.png"))
         self.ui.btnMaximize.setIcon(QtGui.QIcon("icons/icon_resize.png"))
@@ -71,19 +93,23 @@ class AppWindow(QMainWindow):
         self.ui.btnPageReminder.setIcon(QtGui.QIcon("icons/icon_message.png"))
         self.ui.btnPageMessages.setIcon(QtGui.QIcon("icons/icon_file_text.png"))
         self.ui.btnPageHelp.setIcon(QtGui.QIcon("icons/icon_help.png"))
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
-    ## APP EVENTS
-    ########################################################################
+    # ~~~~~~~~~~~~~~~ APP EVENTS ~~~~~~~~~~~~~~ #
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
+    # ======================================================== #
+    # ======================== METHODS ======================= #
+    # ======================================================== #
     def getMessageList(self):
         if not self.messages:
             mes_list = []
             listWidgetReminders = self.ui.listWidgetReminders
             if listWidgetReminders.count() > 0:
                 for i in range(0, listWidgetReminders.count()):
-                    mes_list.append(listWidgetReminders.item(i))
+                    mes_list.append(listWidgetReminders.item(i).text())
             return mes_list
         else:
             return self.messages
@@ -91,14 +117,19 @@ class AppWindow(QMainWindow):
     def setMessageList(self):
         mes_list = []
         listWidgetReminders = self.ui.listWidgetReminders
+        #print("count: ", listWidgetReminders.count())
         if listWidgetReminders.count() > 0:
             for i in range(0, listWidgetReminders.count()):
-                mes_list.append(listWidgetReminders.item(i))
-        self.settings.setValue('message_reminder', mes_list)
+                mes_list.append(listWidgetReminders.item(i).text())
+            self.settings.setValue('message_reminder', mes_list)
 
     def getRandomMessage(self):
-        index = randint(0, len(self.messages))
-        return self.messages[index]
+        index = randint(0, len(self.getMessageList())-1)
+        # print('len of list: ', len(self.getMessageList()))
+        # print(self.getMessageList())
+        # print('index: ', index)
+        # print("mes from getRandom: ",self.getMessageList()[index] )
+        return self.getMessageList()[index]
 
     def getUserName(self):
         st_user_name = self.settings.value('user_name')
@@ -161,7 +192,8 @@ class AppWindow(QMainWindow):
         #QtCore.QTimer.singleShot(60000, popup_reminder.done())
 
     def run(self):
-        print("Mes: ", self.getRandomMessage())
+        if self.isRunning:
+            self.stopReminder()
         if self.getOption() == 'toast':
             self.timer.timeout.connect(self.toastNotification)
         elif self.getOption() == 'popup':
@@ -169,13 +201,32 @@ class AppWindow(QMainWindow):
 
         self.timer.setInterval(self.getTime() * 60000)
         self.timer.start()
-        self.running = True
+        self.isRunning = True
+        print('Running')
+        # RUN APP IN SYSTEMTRAYICON
+        self.trayIcon = QSystemTrayIcon(QtGui.QIcon('eye_icon-removebg.png'), parent=app)
+        self.trayIcon.setToolTip("Care Your Eyes")
+        self.trayIcon.activated.connect(self.show)
+        contextMenu = QMenu()
+        openAction = contextMenu.addAction("Mở")
+        openAction.triggered.connect(self.show)
+        exitAction = contextMenu.addAction('Thoát')
+        exitAction.triggered.connect(app.quit)
 
-    def stop(self):
-        if self.running:
+        self.trayIcon.setContextMenu(contextMenu)
+        self.trayIcon.show()
+
+        # HIDE APP
+        #self.hide()
+    def stopReminder(self):
+        print('Stopped')
+        if self.isRunning:
+            self.timer.disconnect()
             self.timer.stop()
-            self.running = False
-
+            self.isRunning = False
+    # ======================================================== #
+    # ====================== END METHODS ===================== #
+    # ======================================================== #
 class RemindDialog(QDialog):
     def __init__(self):
         super(RemindDialog, self).__init__()
@@ -188,23 +239,14 @@ class RemindDialog(QDialog):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = AppWindow()
-    # IF THE APP RUN THE FIRST TIME
-    print(not window.settings.value('user_name'))
+    # IF THE APP RUN IN THE FIRST TIME
     if not window.settings.value('user_name'):
+        # SHOW WINDOW
         window.show()
     else:
-        # RUN APP IN SYSTEMTRAYICON
-        trayIcon = QSystemTrayIcon(QtGui.QIcon('eye_icon-removebg.png'), parent=app)
-        trayIcon.setToolTip("Care Your Eyes")
-        trayIcon.activated.connect(window.show)
-        contextMenu = QMenu()
-        openAction = contextMenu.addAction("Mở")
-        openAction.triggered.connect(window.show)
-        exitAction = contextMenu.addAction('Thoát')
-        exitAction.triggered.connect(app.quit)
-
-        trayIcon.setContextMenu(contextMenu)
-        trayIcon.show()
-
+        # AUTO RUN APP IN SYS TRAYICON
+        window.run()
+        window.trayIcon.showMessage("Care your Eyes is running", "Click to open", QtGui.QIcon('icons/logoCareYourEyes_circle.ico'))
+        window.trayIcon.messageClicked.connect(window.show)
     # EXIT APP
     sys.exit(app.exec_())
