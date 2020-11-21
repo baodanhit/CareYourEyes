@@ -1,9 +1,10 @@
 import sys
+import os
 from random import randint
+
 from PyQt5 import uic, QtCore, QtGui
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSystemTrayIcon, QMenu
 from plyer import notification
-import appresources
 from ui_function import *
 
 
@@ -82,7 +83,7 @@ class AppWindow(QMainWindow):
         # ~~~~~~~~~~~~~ SET TITLE BAR ~~~~~~~~~~~~~ #
         self.ui.frameTitleBar.mouseMoveEvent = moveWindow
         # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-        
+        self.getAnimalIcons()
 
     # ~~~~~~~~ SETUP ICONS FOR BUTTONS ~~~~~~~~ #
     def setupIcon(self):
@@ -161,6 +162,19 @@ class AppWindow(QMainWindow):
                 self.ui.radioButtonType_Popup.setChecked(True)
         return option
 
+    def getAnimalIcons(self):
+        path = os.path.dirname(__file__) + '/icons/cute_animals'
+        files = []
+        for r, d, f in os.walk(path):
+            for file in f:
+                if '.ico' in file:
+                    files.append(os.path.join(r, file))
+        return files
+
+    def getRandomAnimal(self):
+        index = randint(0, len(self.getAnimalIcons()) - 1)
+        return self.getAnimalIcons()[index]
+
     def setUserName(self):
         self.settings.setValue('user_name', self.ui.lineEditUserName.text())
 
@@ -181,15 +195,19 @@ class AppWindow(QMainWindow):
         message = self.getRandomMessage()
         return notification.notify(title,
                                    message,
-                                   app_name='Rest for Eyes',
-                                   app_icon='icons/logoCareYourEyes_circle.ico',
-                                   timeout=10)
+                                   app_name='Care your Eyes',
+                                   app_icon=self.getRandomAnimal(),
+                                   timeout=10,
+                                   ticker='Care your Eyes',
+                                   toast=True)
 
     def popupReminder(self):
         popup_reminder = RemindDialog()
         popup_reminder.ui.labelUserName.setText('{} ơi !'.format(self.getUserName() if self.getUserName() else "Bạn"))
         popup_reminder.ui.labelReminderText.setText(self.getRandomMessage())
-        #QtCore.QTimer.singleShot(60000, popup_reminder.done())
+        # QtCore.QTimer.singleShot(60000, popup_reminder.done())
+
+        app.setQuitLockEnabled(False)
 
     def run(self):
         if self.isRunning:
@@ -206,24 +224,28 @@ class AppWindow(QMainWindow):
         # RUN APP IN SYSTEMTRAYICON
         self.trayIcon = QSystemTrayIcon(QtGui.QIcon('eye_icon-removebg.png'), parent=app)
         self.trayIcon.setToolTip("Care Your Eyes")
-        self.trayIcon.activated.connect(self.show)
+        self.trayIcon.activated.connect(self.showWindow)
         contextMenu = QMenu()
         openAction = contextMenu.addAction("Mở")
-        openAction.triggered.connect(self.show)
+        openAction.triggered.connect(self.showWindow)
         exitAction = contextMenu.addAction('Thoát')
         exitAction.triggered.connect(app.quit)
-
         self.trayIcon.setContextMenu(contextMenu)
         self.trayIcon.show()
 
         # HIDE APP
-        #self.hide()
+        self.hide()
+
     def stopReminder(self):
         print('Stopped')
         if self.isRunning:
             self.timer.disconnect()
             self.timer.stop()
             self.isRunning = False
+
+    def showWindow(self):
+        self.show()
+        app.setQuitLockEnabled(True)
     # ======================================================== #
     # ====================== END METHODS ===================== #
     # ======================================================== #
@@ -238,15 +260,17 @@ class RemindDialog(QDialog):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    #app.setQuitOnLastWindowClosed(False)
     window = AppWindow()
     # IF THE APP RUN IN THE FIRST TIME
     if not window.settings.value('user_name'):
         # SHOW WINDOW
-        window.show()
+        window.showWindow()
     else:
         # AUTO RUN APP IN SYS TRAYICON
         window.run()
-        window.trayIcon.showMessage("Care your Eyes is running", "Click to open", QtGui.QIcon('icons/logoCareYourEyes_circle.ico'))
-        window.trayIcon.messageClicked.connect(window.show)
+        window.trayIcon.showMessage("Care your Eyes is running", "Click to open",
+                                    QtGui.QIcon('icons/logoCareYourEyes_circle.ico'))
+        window.trayIcon.messageClicked.connect(window.showWindow)
     # EXIT APP
     sys.exit(app.exec_())
