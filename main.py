@@ -12,7 +12,7 @@ class AppWindow(QMainWindow):
     def __init__(self):
         super(AppWindow, self).__init__()
         self.ui = uic.loadUi('ui_main.ui', self)
-        self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
+        #self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
         # ~~~~~~~~~~~ SET UI DEFINITIONS ~~~~~~~~~~ #
         UIFunctions.uiDefinitions(self)
         self.setupIcon()
@@ -51,6 +51,10 @@ class AppWindow(QMainWindow):
         # PAGE 2
         self.ui.btnPageReminder.clicked.connect(
             lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageReminder))
+
+        # PAGE 3
+        self.ui.btnPageTips.clicked.connect(
+            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageTips))
         # ======================================================== #
         # ======================= END PAGES ====================== #
         # ======================================================== #
@@ -92,7 +96,7 @@ class AppWindow(QMainWindow):
         self.ui.btnToggle.setIcon(QtGui.QIcon("icons/hamburger.png"))
         self.ui.btnPageSetting.setIcon(QtGui.QIcon("icons/icon_setting.png"))
         self.ui.btnPageReminder.setIcon(QtGui.QIcon("icons/icon_message.png"))
-        self.ui.btnPageMessages.setIcon(QtGui.QIcon("icons/icon_file_text.png"))
+        self.ui.btnPageTips.setIcon(QtGui.QIcon("icons/icon_file_text.png"))
         self.ui.btnPageHelp.setIcon(QtGui.QIcon("icons/icon_help.png"))
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
@@ -205,7 +209,7 @@ class AppWindow(QMainWindow):
         popup_reminder = RemindDialog()
         popup_reminder.ui.labelUserName.setText('{} ơi !'.format(self.getUserName() if self.getUserName() else "Bạn"))
         popup_reminder.ui.labelReminderText.setText(self.getRandomMessage())
-        # QtCore.QTimer.singleShot(60000, popup_reminder.done())
+        QtCore.QTimer.singleShot(15000, popup_reminder.accept)
 
         app.setQuitLockEnabled(False)
 

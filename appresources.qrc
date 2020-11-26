@@ -12,4 +12,7 @@
     <file>icons/icon_help.ico</file>
     <file>icons/icons_settings.ico</file>
   </qresource>
+  <qresource prefix="images">
+    <file>images/baby-chicken-2.png</file>
+  </qresource>
 </RCC>
