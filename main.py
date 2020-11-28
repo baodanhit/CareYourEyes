@@ -3,7 +3,7 @@ import os
 from random import randint
 
 from PyQt5 import uic, QtCore, QtGui
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSystemTrayIcon, QMenu
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSystemTrayIcon, QMenu, QListWidgetItem
 from plyer import notification
 from ui_function import *
 
@@ -12,7 +12,7 @@ class AppWindow(QMainWindow):
     def __init__(self):
         super(AppWindow, self).__init__()
         self.ui = uic.loadUi('ui_main.ui', self)
-        #self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
+        self.setWindowIcon(QtGui.QIcon('icons/logoCareYourEyes.ico'))
         # ~~~~~~~~~~~ SET UI DEFINITIONS ~~~~~~~~~~ #
         UIFunctions.uiDefinitions(self)
         self.setupIcon()
@@ -25,51 +25,10 @@ class AppWindow(QMainWindow):
         self.getUserName()
         self.getTime()
         self.getOption()
-        self.setMessageList()
         self.getMessageList()
 
         self.timer = QtCore.QTimer()
         self.isRunning = False
-        # ======================================================== #
-        # ==================== LEFT SIDE MENU ==================== #
-        # ======================================================== #
-
-        # TOGGLE BUTTON 
-        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
-
-        # ======================================================== #
-        # ========================= PAGES ======================== #
-        # ======================================================== #
-        
-        # SET DEFAULT TO SETTING PAGE
-        self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting)
-
-        # PAGE 1
-        self.ui.btnPageSetting.clicked.connect(
-            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting))
-
-        # PAGE 2
-        self.ui.btnPageReminder.clicked.connect(
-            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageReminder))
-
-        # PAGE 3
-        self.ui.btnPageTips.clicked.connect(
-            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageTips))
-        # ======================================================== #
-        # ======================= END PAGES ====================== #
-        # ======================================================== #
-
-        # ~~~~~~~~~~~ SETTING ON EDITING ~~~~~~~~~~ #
-        self.ui.lineEditUserName.editingFinished.connect(self.setUserName)
-        self.ui.spinBoxTime.valueChanged.connect(self.setTime)
-        self.ui.radioButtonType_Toast.toggled.connect(self.setMessageOption)
-        # self.ui.textEditReminder.textChanged.connect(self.setMessageList)
-        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-
-        # ~~~~~~~~~~~ RUN/STOP REMINDER ~~~~~~~~~~~ # 
-        self.ui.btnStart.clicked.connect(self.run)
-        self.ui.btnStop.clicked.connect(self.stopReminder)
-        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
         # ~~~~~~~~~~~~~~ MOVE WINDOW ~~~~~~~~~~~~~~ #
         def moveWindow(event):
@@ -82,11 +41,56 @@ class AppWindow(QMainWindow):
                 self.move(self.pos() + event.globalPos() - self.dragPos)
                 self.dragPos = event.globalPos()
                 event.accept()
+
         # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
         # ~~~~~~~~~~~~~ SET TITLE BAR ~~~~~~~~~~~~~ #
         self.ui.frameTitleBar.mouseMoveEvent = moveWindow
         # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+        # ======================================================== #
+        # ==================== LEFT SIDE MENU ==================== #
+        # ======================================================== #
+
+        # TOGGLE BUTTON 
+        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
+
+        # ======================================================== #
+        # ========================= PAGES ======================== #
+        # ======================================================== #
+
+        # SET DEFAULT TO SETTING PAGE
+        self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting)
+
+        # PAGE 1
+        self.ui.btnPageSetting.clicked.connect(
+            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageSetting))
+        # ~~~~~~~~~~~ SETTING ON EDITING ~~~~~~~~~~ #
+        self.ui.lineEditUserName.editingFinished.connect(self.setUserName)
+        self.ui.spinBoxTime.valueChanged.connect(self.setTime)
+        self.ui.radioButtonType_Toast.toggled.connect(self.setMessageOption)
+
+        # PAGE 2
+        self.ui.btnPageReminder.clicked.connect(
+            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageReminder))
+        self.ui.btnAddReminder.clicked.connect(self.addReminder)
+        self.ui.btnRemove.clicked.connect(self.removeReminder)
+        # PAGE 3
+        self.ui.btnPageTips.clicked.connect(
+            lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageTips))
+        # ======================================================== #
+        # ======================= END PAGES ====================== #
+        # ======================================================== #
+
+        # self.ui.textEditReminder.textChanged.connect(self.setMessageList)
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+        # ~~~~~~~~~~~ RUN/STOP REMINDER ~~~~~~~~~~~ # 
+        self.ui.btnStart.clicked.connect(self.run)
+        self.ui.btnStop.clicked.connect(self.stopReminder)
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+
         self.getAnimalIcons()
 
     # ~~~~~~~~ SETUP ICONS FOR BUTTONS ~~~~~~~~ #
@@ -109,20 +113,33 @@ class AppWindow(QMainWindow):
     # ======================== METHODS ======================= #
     # ======================================================== #
     def getMessageList(self):
+        listWidgetReminders = self.ui.listWidgetReminders
         if not self.messages:
             mes_list = []
-            listWidgetReminders = self.ui.listWidgetReminders
             if listWidgetReminders.count() > 0:
                 for i in range(0, listWidgetReminders.count()):
                     mes_list.append(listWidgetReminders.item(i).text())
             return mes_list
         else:
+            listWidgetReminders.clear()
+            for mes in self.messages:
+                item = QListWidgetItem()
+                font = QtGui.QFont()
+                font.setItalic(False)
+                item.setFont(font)
+                item.setFlags(
+                    QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+                item.setCheckState(QtCore.Qt.Checked)
+                item.setText(mes)
+                listWidgetReminders.addItem(item)
             return self.messages
+
+    def updateRemindersView(self):
+        pass
 
     def setMessageList(self):
         mes_list = []
         listWidgetReminders = self.ui.listWidgetReminders
-        #print("count: ", listWidgetReminders.count())
         if listWidgetReminders.count() > 0:
             for i in range(0, listWidgetReminders.count()):
                 mes_list.append(listWidgetReminders.item(i).text())
@@ -130,10 +147,6 @@ class AppWindow(QMainWindow):
 
     def getRandomMessage(self):
         index = randint(0, len(self.getMessageList())-1)
-        # print('len of list: ', len(self.getMessageList()))
-        # print(self.getMessageList())
-        # print('index: ', index)
-        # print("mes from getRandom: ",self.getMessageList()[index] )
         return self.getMessageList()[index]
 
     def getUserName(self):
@@ -207,11 +220,31 @@ class AppWindow(QMainWindow):
 
     def popupReminder(self):
         popup_reminder = RemindDialog()
+        popup_reminder.setWindowIcon(QtGui.QIcon('icons/logoCareYourEyes.ico'))
         popup_reminder.ui.labelUserName.setText('{} ơi !'.format(self.getUserName() if self.getUserName() else "Bạn"))
         popup_reminder.ui.labelReminderText.setText(self.getRandomMessage())
         QtCore.QTimer.singleShot(15000, popup_reminder.accept)
 
         app.setQuitLockEnabled(False)
+
+    def addReminder(self):
+        new_message = self.ui.textEditReminder.toPlainText()
+        if new_message:
+            item = QListWidgetItem()
+            font = QtGui.QFont()
+            font.setItalic(False)
+            item.setFont(font)
+            item.setFlags(
+                QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+            item.setCheckState(QtCore.Qt.Checked)
+            item.setText(new_message)
+            self.ui.listWidgetReminders.addItem(item)
+            self.setMessageList()
+            self.getMessageList()
+
+    def removeReminder(self):
+        self.ui.listWidgetReminders.takeItem(self.ui.listWidgetReminders.currentRow())
+        self.setMessageList()
 
     def run(self):
         if self.isRunning:
@@ -226,7 +259,7 @@ class AppWindow(QMainWindow):
         self.isRunning = True
         print('Running')
         # RUN APP IN SYSTEMTRAYICON
-        self.trayIcon = QSystemTrayIcon(QtGui.QIcon('eye_icon-removebg.png'), parent=app)
+        self.trayIcon = QSystemTrayIcon(QtGui.QIcon('icons/logoCareYourEyes.ico'), parent=app)
         self.trayIcon.setToolTip("Care Your Eyes")
         self.trayIcon.activated.connect(self.showWindow)
         contextMenu = QMenu()

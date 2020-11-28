@@ -84,7 +84,7 @@
                          </string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="pageSetting">
           <layout class="QGridLayout" name="gridLayout_5">
@@ -555,26 +555,29 @@
                </widget>
               </item>
               <item>
-               <widget class="QListWidget" name="listWidgetReminders">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="statusTip">
-                 <string>Nhấp đúp để chỉnh sửa</string>
-                </property>
-                <property name="midLineWidth">
-                 <number>1</number>
-                </property>
-                <property name="alternatingRowColors">
-                 <bool>false</bool>
-                </property>
-                <property name="selectionMode">
-                 <enum>QAbstractItemView::MultiSelection</enum>
-                </property>
-                <property name="textElideMode">
+                  <widget class="QListWidget" name="listWidgetReminders">
+                      <property name="sizePolicy">
+                          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                          </sizepolicy>
+                      </property>
+                      <property name="statusTip">
+                          <string>Nhấp đúp để chỉnh sửa</string>
+                      </property>
+                      <property name="frameShape">
+                          <enum>QFrame::Box</enum>
+                      </property>
+                      <property name="midLineWidth">
+                          <number>1</number>
+                      </property>
+                      <property name="alternatingRowColors">
+                          <bool>false</bool>
+                      </property>
+                      <property name="selectionMode">
+                          <enum>QAbstractItemView::MultiSelection</enum>
+                      </property>
+                      <property name="textElideMode">
                  <enum>Qt::ElideRight</enum>
                 </property>
                 <property name="isWrapping" stdset="0">
@@ -653,11 +656,11 @@
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_8">
                  <item>
-                  <widget class="QPushButton" name="btnDelete">
-                   <property name="text">
-                    <string>Xóa</string>
-                   </property>
-                  </widget>
+                     <widget class="QPushButton" name="btnRemove">
+                         <property name="text">
+                             <string>Xóa</string>
+                         </property>
+                     </widget>
                  </item>
                  <item>
                   <widget class="QPushButton" name="btnClearAll">
@@ -697,58 +700,282 @@
          <widget class="QWidget" name="pageTips">
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
-            <widget class="QTextBrowser" name="textBrowser">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="horizontalScrollBarPolicy">
-              <enum>Qt::ScrollBarAlwaysOff</enum>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Khi thường xuyên sử dụng máy tính hay các thiết bị điện tử khác như ti vi, điện thoại…, mắt dễ bị mỏi, khô, nhức. Bạn cần sử dụng sao cho đúng cách và chăm sóc mắt khi sử dụng máy tính khoa học giúp thị lực luôn ổn định, sức khỏe đôi mắt được đảm bảo.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Cùng với sự phát triển của xã hội, nhu cầu sử dụng máy tính thường xuyên cũng trở nên phổ biến. Điều này đồng nghĩa với việc mắt sẽ phải làm việc nhiều hơn, đặc biệt là những người trẻ, nhân viên văn phòng. Bởi thế, việc sử dụng máy tính, máy tính bảng… đúng cách, cách chăm sóc mắt khoa học cũng có thể cải thiện được phần nào sức khỏe của đôi mắt.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;toc_container&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;N&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;ội Dung Bài Viết&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;#Mat_se_gap_van_de_gi_khi_thuong_xuyen_dung_may_tinh&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;1 Mắt sẽ gặp vấn đề gì khi thường xuyên dùng máy tính&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;#Nguyen_nhan_dan_den_cac_van_de_thi_giac_khi_dung_may_tinh&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;2 Nguyên nhân dẫn đến các vấn đề thị giác khi dùng máy tính&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;#Nguyen_tac_su_dung_may_tinh_va_cac_thiet_bi_dien_tu_dung_cach&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;3 Nguyên tắc sử dụng máy tính và các thiết bị điện tử đúng cách&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;#Cham_soc_mat_khi_su_dung_may_tinh_dung_cach&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;4 Chăm sóc mắt khi sử dụng máy tính đúng cách&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Mat_se_gap_van_de_gi_khi_thuong_xuyen_dung_may_tinh&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;M&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;ắt sẽ gặp vấn đề gì khi thường xuyên dùng máy tính&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Theo một số nghiên cứu của Mỹ khoảng ba phần tư số người thường xuyên sử dụng máy vi tính gặp các rối loạn chức năng về mắt: căng thẳng hay mệt mỏi thị giác,&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00aaff;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/kho-mat-nguyen-nhan-trieu-chung-va-cach-dieu-tri/&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#00aaff;&quot;&gt;khô mắt&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;, cảm giác rát mắt, chói sáng, &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/mat-bi-mo/&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#00aaff;&quot;&gt;nhìn mờ&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;, đau đầu và mỏi vai, mỏi cổ và lưng. Các triệu chứng này được gọi là&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00aaff;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/hoi-chung-thi-gac-may-tinh/&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#00aaff;&quot;&gt;hội chứng về mắt do sử dụng máy vi tính&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; (CVS: Computer Vision Syndrom).&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Các nghiên cứu thời gian gần đây cho thấy chỉ cần 2 giờ ngồi trước màn hình máy tính, mọi người có thể bắt đầu gặp nguy hiểm với triệu chứng căng thẳng mắt. Thời gian được tính nhìn vào màn hình gồm cả máy tính, điện thoại, máy tính bảng và cả TV.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Nguyen_nhan_dan_den_cac_van_de_thi_giac_khi_dung_may_tinh&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;N&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;guyên nhân dẫn đến các vấn đề thị giác khi dùng máy tính&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Bên cạnh nhữngtác nhân gây hại như nắng, gió, khói bụi từ môi trường khi đi đường,…đôi mắtphải hoạt động, điều tiết liên tục cả ngày khi làm việc trước máy tính khiếncho mắt rất dễ rơi vào tình trạng nhức mỏi, đỏ, khô ngứa…&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Chiếu sáng kém hoặc quá nhiều, kèm với các tia phản xạ từ màn hình.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt; font-weight:600;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Khoảng cách nhìn không đúng.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt; font-weight:600;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ngồi sai tư thế.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt; font-weight:600;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mắt có tật khúc xạ: Viễn thị, loạn thị, lão thị hay các rối loạn về điều tiết.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt; font-weight:600;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Giảm lượng nước mắt đến giác mạc do giảm số lần chớp mắt hoặc bị khô mắt.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt; font-weight:600;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Phối hợp các yếu tố trên.&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Nguyen_tac_su_dung_may_tinh_va_cac_thiet_bi_dien_tu_dung_cach&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;N&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;guyên tắc sử dụng máy tính và các thiết bị điện tử đúng cách&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Cần hiểu rõ những nguyên tắc sử dụng máy tính và các thiết bị điện tử như tivi, máy tính bảng, smartphone để giảm sự căng thẳng và sự khô mỏi cho mắt:&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Làm sạch màn hình máy tính&lt;/span&gt;: Bụi và vết bẩn trên màn hình máy tính, tivi… là nguyên nhân làm cho màn hình bị mờ, khó đọc gây ra chứng mỏi mắt. Vì thế, làm sạch màn hình là một phương pháp đơn giản đầu tiên bạn nên áp dụng. Điều này có thể giúp giảm mỏi mắt khi phải làm việc hay xem tivi nhiều.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Quy tắc 20-20-20&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Khi làm việc, hãy nhớ quy tắc: Sau 20 phút làm việc, nghỉ khoảng 20 giây và nhìn ra khoảng cách xa khoảng 20 foot (khoảng 6 mét). Đôi mắt của chúng ta có các cơ để giúp chúng di chuyển và tập trung vào các vật thể. Nhưng nếu chúng ta nhìn vào màn hình trong cùng khoảng cách quá lâu thì cơ mắt sẽ giảm đi sự linh hoạt, khó điều chỉnh khi chúng ta di chuyển mắt hướng đến những khoảng cách khác.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Điều chỉnh độ sáng màn hình&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Màn hình sáng dễ làm bạn chảy nước mắt, khiến mắt nhanh mỏi.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Đeo kính thay vì sử dụng kính áp tròng&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt;  &lt;a href=&quot;https://benhvienmatsaigon.com.vn/uu-va-nhuoc-diem-khi-deo-kinh-ap-trong/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;Kính áp tròng&lt;/span&gt;&lt;/a&gt; không thể bảo vệ mắt của bạn trước màn hình máy vi tính và sẽ làm mắt bạn bị khô. Hãy chuyển sang kính gọng.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Dùng kính chống lóa&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Nếu phải dùng kính, hãy thêm lớp chống lóa để bảo vệ mắt. Tất cả nhà cung cấp kính chăm sóc đeo mắt đều có bán lớp kính này.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt; color:#00ff7f;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Giữ khoảng cách vừa phải với màn hình&lt;/span&gt;: &lt;span style=&quot; color:#ffffff;&quot;&gt;Luôn duy trì một khoảng cách khá xa với màn hình máy tính trong khi làm việc. Đó là lý do tại sao sử dụng máy tính để bàn lại tốt hơn so với máy tính bảng và máy tính xách tay.&lt;/span&gt;&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Tăng font chữ&lt;/span&gt;: Khi phải đọc hay viết nhanh, hãy để phông chữ to để mắt không phải điều tiết quá nhiều, giảm áp lực lên đôi mắt.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Dùng kính không độ&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Cho dù mắt bạn hoàn toàn khỏe mạnh, bạn vẫn nên sử dụng kính không độ để chống lại ánh sáng từ màn hình.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Thêm màn hình bảo vệ thị lực&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Một số người đã gắn thêm một màn hình bảo vệ thị lực trên máy vi tính để bảo vệ mắt. Đây có thể là một trong những cách tốt nhất để giảm căng thẳng cho đôi mắt của bạn. &lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Cham_soc_mat_khi_su_dung_may_tinh_dung_cach&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;C&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;hăm sóc mắt khi sử dụng máy tính đúng cách&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Cách &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/category/hieu-ve-doi-mat/&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#00aaff;&quot;&gt;chăm sóc mắt&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; tốt nhất, hiệu quả nhất chắc chắn là việc điều chỉnh thời gian làm việc với máy tính vì nếu làm việc quá sức là tác nhân nguy hiểm nhất khiến mắt bị mệt mỏi.&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Chớp mắt thường xuyên&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Mải làm việc khiến nhiều người quên chớp mắt trong thời gian dài. Chớp mắt thường xuyên giúp mắt không bị khô và mỏi.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Massage cho đôi mắt&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Nên massage đôi mắt mỗi ngày bằng cách: dùng hai bàn tay cọ xát vào nhau cho nóng lên rồi sau đó áp lên đôi mắt, vuốt nhẹ từ trong ra ngoài, dùng tay day nhẹ nhàng đôi mắt. Bạn cũng có thể cắt lát dưa chuột hoặc cà chua rồi đắp lên đôi mắt để mắt được thư giãn hơn.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Dùng&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/thuoc-nho-mat/&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; text-decoration: underline; color:#00ff7f;&quot;&gt;thuốc nhỏ mắt&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Sau một ngày làm việc mệt mỏi, chúng ta nên dùng thuốc nhỏ mắt vào mỗi buổi tối để giúp mắt sáng khoẻ. Hãy nhắm mắt lại và thư giãn. Mắt cần được cung cấp nước cũng như loại bỏ những màng mờ trên mắt. Bạn có thể xin ý kiến tư vấn của bác sĩ để lựa chọn loại thuốc nhỏ mắt thích hợp cho mình. Trường hợp cần thiết, cảm giác có cộm xốn bụi mắt nên nhỏ vài giọt thuốc sát khuẩn nhẹ.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Bảo vệ mắt khi ngủ&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Nên hạn chế ánh sáng tối đa bởi vì ánh sáng kích thích thị giác, tạo hưng phấn vỏ não gây khó ngủ. Nên mở cửa sổ cho thông thoáng vì lúc ngủ mắt cũng cần oxy để “thở”.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Không nheo mắt, liếc mắt&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Máy vi tính, máy tính bảng và điện thoại thông minh đều có chức năng phóng to để bạn có thể đọc dễ dàng hơn. Nheo mắt thì có hại cho đôi mắt của bạn.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Đảo mắt&lt;/span&gt;: Làm việc quá tập trung khiến mắt căng và mỏi. Mở mắt to và đào mắt sẽ là bài tập thư giãn rất tốt cho mắt của bạn.&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Về &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;chế độ ăn uống&lt;/span&gt;, bạn cần tăng cường ăn các loại rau có lá màu xanh thẫm, các loại trái cây có màu đỏ, vàng để bổ xung Vitamin A. Bạn cũng có thể uống một số loại thuốc để tăng cường dinh dưỡng cho mắt như là dầu cá… (tham khảo: &lt;a href=&quot;https://benhvienmatsaigon.com.vn/thuc-pham-tot-cho-mat/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;9 thực phẩm tốt cho mắt nên ăn hàng ngày&lt;/span&gt;&lt;/a&gt;)&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nên &lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;đi khám mắt định kỳ&lt;/span&gt; 6 tháng một lần tại các&lt;span style=&quot; color:#00aaff;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;bệnh viện mắt&lt;/span&gt;&lt;/a&gt; chuyên khoa để điều chỉnh kính cho phù hợp vì đeo sai số kính cũng là một nguyên nhân khiến mắt nhức mỏi.&lt;/li&gt;&lt;/ul&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Nguồn: &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/cham-soc-mat-khi-su-dung-may-tinh/&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#ffffff;&quot;&gt;https://benhvienmatsaigon.com.vn/cham-soc-mat-khi-su-dung-may-tinh/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <widget class="QTextBrowser" name="textBrowser">
+                   <property name="font">
+                       <font>
+                           <family>Times New Roman</family>
+                           <pointsize>8</pointsize>
+                           <weight>50</weight>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                       </font>
+                   </property>
+                   <property name="styleSheet">
+                       <string notr="true">font: 8pt &quot;Times New Roman&quot;;</string>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="html">
+                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                           &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style
+                           type=&quot;text/css&quot;&gt;
+                           p, li { white-space: pre-wrap; }
+                           &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Times New Roman';
+                           font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Khi thường xuyên sử dụng máy tính hay các thiết bị điện tử khác
+                           như ti vi, điện thoại…, mắt dễ bị mỏi, khô, nhức. Bạn cần sử dụng sao cho đúng cách và chăm
+                           sóc mắt khi sử dụng máy tính khoa học giúp thị lực luôn ổn định, sức khỏe đôi mắt được đảm
+                           bảo.&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Cùng với sự phát triển của xã hội, nhu cầu sử dụng máy tính
+                           thường xuyên cũng trở nên phổ biến. Điều này đồng nghĩa với việc mắt sẽ phải làm việc nhiều
+                           hơn, đặc biệt là những người trẻ, nhân viên văn phòng. Bởi thế, việc sử dụng máy tính, máy
+                           tính bảng… đúng cách, cách chăm sóc mắt khoa học cũng có thể cải thiện được phần nào sức khỏe
+                           của đôi mắt.&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;toc_container&quot;&gt;&lt;/a&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot;&gt;N&lt;/span&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot;&gt;ội Dung Bài Viết&lt;/span&gt;&lt;/p&gt;
+                           &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;
+                           -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2';
+                           font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px;
+                           margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;#Mat_se_gap_van_de_gi_khi_thuong_xuyen_dung_may_tinh&quot;&gt;&lt;span
+                           style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;1 Mắt sẽ gặp vấn đề gì khi
+                           thường xuyên dùng máy tính&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;a href=&quot;#Nguyen_nhan_dan_den_cac_van_de_thi_giac_khi_dung_may_tinh&quot;&gt;&lt;span
+                           style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;2 Nguyên nhân dẫn đến các
+                           vấn đề thị giác khi dùng máy tính&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;a href=&quot;#Nguyen_tac_su_dung_may_tinh_va_cac_thiet_bi_dien_tu_dung_cach&quot;&gt;&lt;span
+                           style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;3 Nguyên tắc sử dụng máy
+                           tính và các thiết bị điện tử đúng cách&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;a href=&quot;#Cham_soc_mat_khi_su_dung_may_tinh_dung_cach&quot;&gt;&lt;span
+                           style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;4 Chăm sóc mắt khi sử dụng
+                           máy tính đúng cách&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+                           &lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Mat_se_gap_van_de_gi_khi_thuong_xuyen_dung_may_tinh&quot;&gt;&lt;/a&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;M&lt;/span&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;ắt sẽ
+                           gặp vấn đề gì khi thường xuyên dùng máy tính&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Theo một số nghiên cứu của Mỹ khoảng ba phần tư số người thường
+                           xuyên sử dụng máy vi tính gặp các rối loạn chức năng về mắt: căng thẳng hay mệt mỏi thị giác,&lt;/span&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; color:#00aaff;&quot;&gt; &lt;/span&gt;&lt;a
+                           href=&quot;https://benhvienmatsaigon.com.vn/kho-mat-nguyen-nhan-trieu-chung-va-cach-dieu-tri/&quot;&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; text-decoration: underline;
+                           color:#00aaff;&quot;&gt;khô mắt&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'MS
+                           Shell Dlg 2'; font-size:12pt;&quot;&gt;, cảm giác rát mắt, chói sáng, &lt;/span&gt;&lt;a
+                           href=&quot;https://benhvienmatsaigon.com.vn/mat-bi-mo/&quot;&gt;&lt;span style=&quot;
+                           font-family:'MS Shell Dlg 2'; font-size:12pt; text-decoration: underline; color:#00aaff;&quot;&gt;nhìn
+                           mờ&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot;&gt;,
+                           đau đầu và mỏi vai, mỏi cổ và lưng. Các triệu chứng này được gọi là&lt;/span&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; color:#00aaff;&quot;&gt; &lt;/span&gt;&lt;a
+                           href=&quot;https://benhvienmatsaigon.com.vn/hoi-chung-thi-gac-may-tinh/&quot;&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; text-decoration: underline;
+                           color:#00aaff;&quot;&gt;hội chứng về mắt do sử dụng máy vi tính&lt;/span&gt;&lt;/a&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot;&gt; (CVS: Computer Vision
+                           Syndrom).&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Các nghiên cứu thời gian gần đây cho thấy chỉ cần 2 giờ ngồi
+                           trước màn hình máy tính, mọi người có thể bắt đầu gặp nguy hiểm với triệu chứng căng thẳng
+                           mắt. Thời gian được tính nhìn vào màn hình gồm cả máy tính, điện thoại, máy tính bảng và cả
+                           TV.&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Nguyen_nhan_dan_den_cac_van_de_thi_giac_khi_dung_may_tinh&quot;&gt;&lt;/a&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;N&lt;/span&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;guyên
+                           nhân dẫn đến các vấn đề thị giác khi dùng máy tính&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Bên cạnh nhữngtác nhân gây hại như nắng, gió, khói bụi từ môi
+                           trường khi đi đường,…đôi mắtphải hoạt động, điều tiết liên tục cả ngày khi làm việc trước máy
+                           tính khiếncho mắt rất dễ rơi vào tình trạng nhức mỏi, đỏ, khô ngứa…&lt;/span&gt;&lt;/p&gt;
+                           &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;
+                           -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2';
+                           font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px;
+                           margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;
+                           font-weight:600;&quot;&gt;Chiếu sáng kém hoặc quá nhiều, kèm với các tia phản xạ từ màn hình.&lt;/span&gt;&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;
+                           style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;Khoảng cách nhìn không đúng.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;
+                           style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;Ngồi sai tư thế.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;
+                           style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;Mắt có tật khúc xạ: Viễn thị, loạn thị, lão thị
+                           hay các rối loạn về điều tiết.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;
+                           style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;Giảm lượng nước mắt đến giác mạc do giảm số lần
+                           chớp mắt hoặc bị khô mắt.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;
+                           style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;Phối hợp các yếu tố trên.&lt;/li&gt;&lt;/ul&gt;
+                           &lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Nguyen_tac_su_dung_may_tinh_va_cac_thiet_bi_dien_tu_dung_cach&quot;&gt;&lt;/a&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;N&lt;/span&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;guyên
+                           tắc sử dụng máy tính và các thiết bị điện tử đúng cách&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Cần hiểu rõ những nguyên tắc sử dụng máy tính và các thiết bị
+                           điện tử như tivi, máy tính bảng, smartphone để giảm sự căng thẳng và sự khô mỏi cho mắt:&lt;/span&gt;&lt;/p&gt;
+                           &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;
+                           -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2';
+                           font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px;
+                           margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Làm sạch màn hình máy tính&lt;/span&gt;:
+                           Bụi và vết bẩn trên màn hình máy tính, tivi… là nguyên nhân làm cho màn hình bị mờ, khó đọc
+                           gây ra chứng mỏi mắt. Vì thế, làm sạch màn hình là một phương pháp đơn giản đầu tiên bạn nên
+                           áp dụng. Điều này có thể giúp giảm mỏi mắt khi phải làm việc hay xem tivi nhiều.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Quy tắc 20-20-20&lt;/span&gt;&lt;span style=&quot; font-weight:600;
+                           font-style:italic;&quot;&gt;:&lt;/span&gt; Khi làm việc, hãy nhớ quy tắc: Sau 20 phút làm
+                           việc, nghỉ khoảng 20 giây và nhìn ra khoảng cách xa khoảng 20 foot (khoảng 6 mét). Đôi mắt
+                           của chúng ta có các cơ để giúp chúng di chuyển và tập trung vào các vật thể. Nhưng nếu chúng
+                           ta nhìn vào màn hình trong cùng khoảng cách quá lâu thì cơ mắt sẽ giảm đi sự linh hoạt, khó
+                           điều chỉnh khi chúng ta di chuyển mắt hướng đến những khoảng cách khác.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Điều chỉnh độ sáng màn hình&lt;/span&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Màn hình sáng dễ làm bạn chảy
+                           nước mắt, khiến mắt nhanh mỏi.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Đeo kính thay vì sử dụng kính áp tròng&lt;/span&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; &lt;a href=&quot;https://benhvienmatsaigon.com.vn/uu-va-nhuoc-diem-khi-deo-kinh-ap-trong/&quot;&gt;&lt;span
+                           style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;Kính áp tròng&lt;/span&gt;&lt;/a&gt;
+                           không thể bảo vệ mắt của bạn trước màn hình máy vi tính và sẽ làm mắt bạn bị khô. Hãy chuyển
+                           sang kính gọng.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Dùng kính chống lóa&lt;/span&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Nếu phải dùng kính, hãy thêm lớp
+                           chống lóa để bảo vệ mắt. Tất cả nhà cung cấp kính chăm sóc đeo mắt đều có bán lớp kính này.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; color:#00ff7f;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Giữ
+                           khoảng cách vừa phải với màn hình&lt;/span&gt;: &lt;span style=&quot; color:#ffffff;&quot;&gt;Luôn
+                           duy trì một khoảng cách khá xa với màn hình máy tính trong khi làm việc. Đó là lý do tại sao
+                           sử dụng máy tính để bàn lại tốt hơn so với máy tính bảng và máy tính xách tay.&lt;/span&gt;&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Tăng font chữ&lt;/span&gt;: Khi phải đọc hay viết nhanh, hãy để phông
+                           chữ to để mắt không phải điều tiết quá nhiều, giảm áp lực lên đôi mắt.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Dùng kính không độ&lt;/span&gt;&lt;span style=&quot; font-weight:600;
+                           font-style:italic;&quot;&gt;:&lt;/span&gt; Cho dù mắt bạn hoàn toàn khỏe mạnh, bạn vẫn nên sử
+                           dụng kính không độ để chống lại ánh sáng từ màn hình.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Thêm màn hình bảo vệ thị lực&lt;/span&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Một số người đã gắn thêm một màn
+                           hình bảo vệ thị lực trên máy vi tính để bảo vệ mắt. Đây có thể là một trong những cách tốt
+                           nhất để giảm căng thẳng cho đôi mắt của bạn. &lt;/li&gt;&lt;/ul&gt;
+                           &lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;Cham_soc_mat_khi_su_dung_may_tinh_dung_cach&quot;&gt;&lt;/a&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;C&lt;/span&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;hăm sóc
+                           mắt khi sử dụng máy tính đúng cách&lt;/span&gt;&lt;/p&gt;
+                           &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Cách &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/category/hieu-ve-doi-mat/&quot;&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; text-decoration: underline;
+                           color:#00aaff;&quot;&gt;chăm sóc mắt&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot;
+                           font-family:'MS Shell Dlg 2'; font-size:12pt;&quot;&gt; tốt nhất, hiệu quả nhất chắc chắn là
+                           việc điều chỉnh thời gian làm việc với máy tính vì nếu làm việc quá sức là tác nhân nguy hiểm
+                           nhất khiến mắt bị mệt mỏi.&lt;/span&gt;&lt;/p&gt;
+                           &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;
+                           -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'MS Shell Dlg 2';
+                           font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px;
+                           margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;Chớp mắt thường xuyên&lt;/span&gt;&lt;span
+                           style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Mải làm việc khiến
+                           nhiều người quên chớp mắt trong thời gian dài. Chớp mắt thường xuyên giúp mắt không bị khô và
+                           mỏi.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Massage cho đôi mắt&lt;/span&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Nên massage đôi mắt mỗi ngày bằng
+                           cách: dùng hai bàn tay cọ xát vào nhau cho nóng lên rồi sau đó áp lên đôi mắt, vuốt nhẹ từ
+                           trong ra ngoài, dùng tay day nhẹ nhàng đôi mắt. Bạn cũng có thể cắt lát dưa chuột hoặc cà
+                           chua rồi đắp lên đôi mắt để mắt được thư giãn hơn.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Dùng&lt;/span&gt;&lt;span style=&quot; font-weight:600;
+                           font-style:italic;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/thuoc-nho-mat/&quot;&gt;&lt;span
+                           style=&quot; font-weight:600; font-style:italic; text-decoration: underline; color:#00ff7f;&quot;&gt;thuốc
+                           nhỏ mắt&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt;
+                           Sau một ngày làm việc mệt mỏi, chúng ta nên dùng thuốc nhỏ mắt vào mỗi buổi tối để giúp mắt
+                           sáng khoẻ. Hãy nhắm mắt lại và thư giãn. Mắt cần được cung cấp nước cũng như loại bỏ những
+                           màng mờ trên mắt. Bạn có thể xin ý kiến tư vấn của bác sĩ để lựa chọn loại thuốc nhỏ mắt
+                           thích hợp cho mình. Trường hợp cần thiết, cảm giác có cộm xốn bụi mắt nên nhỏ vài giọt thuốc
+                           sát khuẩn nhẹ.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Bảo vệ mắt khi ngủ&lt;/span&gt;&lt;span style=&quot; font-weight:600;
+                           font-style:italic;&quot;&gt;:&lt;/span&gt; Nên hạn chế ánh sáng tối đa bởi vì ánh sáng kích
+                           thích thị giác, tạo hưng phấn vỏ não gây khó ngủ. Nên mở cửa sổ cho thông thoáng vì lúc ngủ
+                           mắt cũng cần oxy để “thở”.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Không nheo mắt, liếc mắt&lt;/span&gt;&lt;span style=&quot;
+                           font-weight:600; font-style:italic;&quot;&gt;:&lt;/span&gt; Máy vi tính, máy tính bảng và
+                           điện thoại thông minh đều có chức năng phóng to để bạn có thể đọc dễ dàng hơn. Nheo mắt thì
+                           có hại cho đôi mắt của bạn.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;Đảo mắt&lt;/span&gt;: Làm việc quá tập trung khiến mắt căng và mỏi.
+                           Mở mắt to và đào mắt sẽ là bài tập thư giãn rất tốt cho mắt của bạn.&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Về
+                           &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00ff7f;&quot;&gt;chế
+                           độ ăn uống&lt;/span&gt;, bạn cần tăng cường ăn các loại rau có lá màu xanh thẫm, các loại
+                           trái cây có màu đỏ, vàng để bổ xung Vitamin A. Bạn cũng có thể uống một số loại thuốc để tăng
+                           cường dinh dưỡng cho mắt như là dầu cá… (tham khảo: &lt;a href=&quot;https://benhvienmatsaigon.com.vn/thuc-pham-tot-cho-mat/&quot;&gt;&lt;span
+                           style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;9 thực phẩm tốt cho mắt nên
+                           ăn hàng ngày&lt;/span&gt;&lt;/a&gt;)&lt;/li&gt;
+                           &lt;li style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot; style=&quot;
+                           margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0;
+                           text-indent:0px;&quot;&gt;Nên &lt;span style=&quot; font-weight:600; font-style:italic;
+                           color:#00ff7f;&quot;&gt;đi khám mắt định kỳ&lt;/span&gt; 6 tháng một lần tại các&lt;span
+                           style=&quot; color:#00aaff;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/&quot;&gt;&lt;span
+                           style=&quot; text-decoration: underline; color:#00aaff;&quot;&gt;bệnh viện mắt&lt;/span&gt;&lt;/a&gt;
+                           chuyên khoa để điều chỉnh kính cho phù hợp vì đeo sai số kính cũng là một nguyên nhân khiến
+                           mắt nhức mỏi.&lt;/li&gt;&lt;/ul&gt;
+                           &lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px;
+                           -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg
+                           2'; font-size:12pt;&quot;&gt;Nguồn: &lt;/span&gt;&lt;a href=&quot;https://benhvienmatsaigon.com.vn/cham-soc-mat-khi-su-dung-may-tinh/&quot;&gt;&lt;span
+                           style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; text-decoration: underline;
+                           color:#ffffff;&quot;&gt;https://benhvienmatsaigon.com.vn/cham-soc-mat-khi-su-dung-may-tinh/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                       </string>
              </property>
              <property name="overwriteMode">
               <bool>false</bool>
@@ -868,7 +1095,7 @@ p, li { white-space: pre-wrap; }
                    </string>
             </property>
             <property name="text">
-             <string>Chung</string>
+                <string>Chung</string>
             </property>
             <property name="icon">
              <iconset resource="appresources.qrc">
@@ -912,7 +1139,7 @@ p, li { white-space: pre-wrap; }
                    </string>
             </property>
             <property name="text">
-             <string>Lời nhắc</string>
+                <string>Lời nhắc</string>
             </property>
             <property name="icon">
              <iconset resource="appresources.qrc">
@@ -953,7 +1180,7 @@ p, li { white-space: pre-wrap; }
                    </string>
             </property>
             <property name="text">
-             <string>Tips</string>
+                <string>Tips</string>
             </property>
             <property name="icon">
              <iconset resource="appresources.qrc">
@@ -1000,7 +1227,7 @@ p, li { white-space: pre-wrap; }
                    </string>
             </property>
             <property name="text">
-             <string>Help</string>
+                <string>Trợ giúp</string>
             </property>
             <property name="icon">
              <iconset resource="appresources.qrc">
