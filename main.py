@@ -3,10 +3,10 @@ import os
 from random import randint
 
 from PyQt5 import uic, QtCore, QtGui
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSystemTrayIcon, QMenu, QListWidgetItem
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QSystemTrayIcon, QMenu, QListWidgetItem, QDesktopWidget
 from plyer import notification
 from ui_function import *
-
+from tips import tips
 
 class AppWindow(QMainWindow):
     def __init__(self):
@@ -53,7 +53,7 @@ class AppWindow(QMainWindow):
         # ======================================================== #
 
         # TOGGLE BUTTON 
-        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
+        self.ui.btnToggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 120, True))
 
         # ======================================================== #
         # ========================= PAGES ======================== #
@@ -75,9 +75,12 @@ class AppWindow(QMainWindow):
             lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageReminder))
         self.ui.btnAddReminder.clicked.connect(self.addReminder)
         self.ui.btnRemove.clicked.connect(self.removeReminder)
+        self.ui.btnClearAll.clicked.connect(self.clearAllReminder)
         # PAGE 3
         self.ui.btnPageTips.clicked.connect(
             lambda: self.ui.stackedWidgetContainer.setCurrentWidget(self.ui.pageTips))
+        # PAGE 4
+
         # ======================================================== #
         # ======================= END PAGES ====================== #
         # ======================================================== #
@@ -101,7 +104,7 @@ class AppWindow(QMainWindow):
         self.ui.btnPageSetting.setIcon(QtGui.QIcon("icons/icon_setting.png"))
         self.ui.btnPageReminder.setIcon(QtGui.QIcon("icons/icon_message.png"))
         self.ui.btnPageTips.setIcon(QtGui.QIcon("icons/icon_file_text.png"))
-        self.ui.btnPageHelp.setIcon(QtGui.QIcon("icons/icon_help.png"))
+        self.ui.btnPageAbout.setIcon(QtGui.QIcon("icons/icon_help.png"))
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
     # ~~~~~~~~~~~~~~~ APP EVENTS ~~~~~~~~~~~~~~ #
@@ -121,21 +124,22 @@ class AppWindow(QMainWindow):
                     mes_list.append(listWidgetReminders.item(i).text())
             return mes_list
         else:
-            listWidgetReminders.clear()
-            for mes in self.messages:
-                item = QListWidgetItem()
-                font = QtGui.QFont()
-                font.setItalic(False)
-                item.setFont(font)
-                item.setFlags(
-                    QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
-                item.setCheckState(QtCore.Qt.Checked)
-                item.setText(mes)
-                listWidgetReminders.addItem(item)
+            self.updateRemindersView()
             return self.messages
 
     def updateRemindersView(self):
-        pass
+        self.ui.listWidgetReminders.clear()
+        for mes in self.settings.value('message_reminder'):
+            item = QListWidgetItem()
+            font = QtGui.QFont()
+            font.setItalic(False)
+            item.setFont(font)
+            item.setFlags(
+                QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
+            item.setCheckState(QtCore.Qt.Checked)
+            item.setText(mes)
+            self.ui.listWidgetReminders.addItem(item)
+        return 0
 
     def setMessageList(self):
         mes_list = []
@@ -192,6 +196,11 @@ class AppWindow(QMainWindow):
         index = randint(0, len(self.getAnimalIcons()) - 1)
         return self.getAnimalIcons()[index]
 
+    def getRandomTip(self):
+        self.tips = tips
+        index = randint(0, len(self.tips) - 1)
+        return self.tips[index]
+
     def setUserName(self):
         self.settings.setValue('user_name', self.ui.lineEditUserName.text())
 
@@ -221,9 +230,18 @@ class AppWindow(QMainWindow):
     def popupReminder(self):
         popup_reminder = RemindDialog()
         popup_reminder.setWindowIcon(QtGui.QIcon('icons/logoCareYourEyes.ico'))
+        screen = app.primaryScreen()
+        size = screen.size()
+        x = int(size.width() / 2 - popup_reminder.width() / 2)
+        popup_reminder.setGeometry(x, 45, 400, 300)
         popup_reminder.ui.labelUserName.setText('{} ơi !'.format(self.getUserName() if self.getUserName() else "Bạn"))
+        image = self.getRandomAnimal()
+        animal = QtGui.QPixmap(image)
+        popup_reminder.ui.labelImage.setPixmap(animal)
         popup_reminder.ui.labelReminderText.setText(self.getRandomMessage())
-        QtCore.QTimer.singleShot(15000, popup_reminder.accept)
+        popup_reminder.ui.labelTips.setText('Tips: ' + self.getRandomTip())
+        popup_reminder.show()
+        QtCore.QTimer.singleShot(20000, popup_reminder.accept)
 
         app.setQuitLockEnabled(False)
 
@@ -240,10 +258,14 @@ class AppWindow(QMainWindow):
             item.setText(new_message)
             self.ui.listWidgetReminders.addItem(item)
             self.setMessageList()
-            self.getMessageList()
+            self.updateRemindersView()
 
     def removeReminder(self):
         self.ui.listWidgetReminders.takeItem(self.ui.listWidgetReminders.currentRow())
+        self.setMessageList()
+
+    def clearAllReminder(self):
+        self.ui.listWidgetReminders.clear()
         self.setMessageList()
 
     def run(self):
@@ -292,8 +314,6 @@ class RemindDialog(QDialog):
         self.ui = uic.loadUi('ui_remind_dialog.ui', self)
         self.setWindowIcon(QtGui.QIcon('eye_icon.png'))
         self.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint)
-        self.show()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

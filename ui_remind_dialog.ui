@@ -4,10 +4,10 @@
  <widget class="QDialog" name="Dialog">
   <property name="geometry">
    <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>184</height>
+       <x>0</x>
+       <y>0</y>
+       <width>401</width>
+       <height>429</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,71 +26,175 @@
    <string>Nhắc nhở</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(23, 26, 38);</string>
+      <string notr="true"/>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="labelUserName">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <italic>true</italic>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>User Name</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="labelReminderText">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="locale">
-      <locale language="Vietnamese" country="Vietnam"/>
-     </property>
-     <property name="text">
-      <string>Lời nhắc sẽ hiện thị ở đây.</string>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QDialogButtonBox" name="buttonBox_OK">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
-     </property>
-     <property name="centerButtons">
+     <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+             <number>0</number>
+         </property>
+         <property name="leftMargin">
+             <number>0</number>
+         </property>
+         <property name="topMargin">
+             <number>0</number>
+         </property>
+         <property name="rightMargin">
+             <number>0</number>
+         </property>
+         <item>
+             <widget class="QFrame" name="frame">
+                 <property name="styleSheet">
+                     <string notr="true">background-color: rgb(0, 129, 62);</string>
+                 </property>
+                 <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_2">
+                     <item>
+                         <widget class="QLabel" name="labelUserName">
+                             <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                 </sizepolicy>
+                             </property>
+                             <property name="font">
+                                 <font>
+                                     <family>Times New Roman</family>
+                                     <pointsize>12</pointsize>
+                                     <weight>75</weight>
+                                     <italic>true</italic>
+                                     <bold>true</bold>
+                                 </font>
+                             </property>
+                             <property name="text">
+                                 <string>User Name</string>
+                             </property>
+                             <property name="alignment">
+                                 <set>Qt::AlignCenter</set>
+                             </property>
+                         </widget>
+                     </item>
+                     <item>
+                         <widget class="QLabel" name="labelImage">
+                             <property name="text">
+                                 <string/>
+                             </property>
+                             <property name="pixmap">
+                                 <pixmap>icons/cute_animals/cute_dog_2_LBN_icon.ico</pixmap>
+                             </property>
+                             <property name="scaledContents">
+                                 <bool>false</bool>
+                             </property>
+                             <property name="alignment">
+                                 <set>Qt::AlignCenter</set>
+                             </property>
+                         </widget>
+                     </item>
+                     <item>
+                         <widget class="QLabel" name="labelReminderText">
+                             <property name="font">
+                                 <font>
+                                     <pointsize>12</pointsize>
+                                     <weight>75</weight>
+                                     <bold>true</bold>
+                                 </font>
+                             </property>
+                             <property name="styleSheet">
+                                 <string notr="true"/>
+                             </property>
+                             <property name="locale">
+                                 <locale language="Vietnamese" country="Vietnam"/>
+                             </property>
+                             <property name="text">
+                                 <string>Lời nhắc sẽ hiện thị ở đây.</string>
+                             </property>
+                             <property name="scaledContents">
+                                 <bool>true</bool>
+                             </property>
+                             <property name="alignment">
+                                 <set>Qt::AlignCenter</set>
+                             </property>
+                             <property name="wordWrap">
+                                 <bool>true</bool>
+                             </property>
+                             <property name="margin">
+                                 <number>5</number>
+                             </property>
+                         </widget>
+                     </item>
+                 </layout>
+             </widget>
+         </item>
+         <item>
+             <widget class="QFrame" name="frame_2">
+                 <property name="styleSheet">
+                     <string notr="true">background-color: rgb(229, 229, 229);
+                         color: rgb(0, 0, 0);
+                     </string>
+                 </property>
+                 <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                     <item>
+                         <widget class="QLabel" name="labelTips">
+                             <property name="font">
+                                 <font>
+                                     <family>Cambria</family>
+                                     <pointsize>12</pointsize>
+                                     <weight>75</weight>
+                                     <bold>true</bold>
+                                 </font>
+                             </property>
+                             <property name="text">
+                                 <string>Tips sẽ hiển thị ở đây</string>
+                             </property>
+                             <property name="alignment">
+                                 <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+                             </property>
+                             <property name="wordWrap">
+                                 <bool>true</bool>
+                             </property>
+                             <property name="margin">
+                                 <number>5</number>
+                             </property>
+                         </widget>
+                     </item>
+                 </layout>
+             </widget>
+         </item>
+         <item>
+             <spacer name="verticalSpacer">
+                 <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                     <size>
+                         <width>20</width>
+                         <height>40</height>
+                     </size>
+                 </property>
+             </spacer>
+         </item>
+         <item>
+             <widget class="QDialogButtonBox" name="buttonBox_OK">
+                 <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="standardButtons">
+                     <set>QDialogButtonBox::Ok</set>
+                 </property>
+                 <property name="centerButtons">
       <bool>true</bool>
      </property>
     </widget>
